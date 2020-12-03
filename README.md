@@ -1,24 +1,70 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# テーブル設計
 
-Things you may want to cover:
+## users テーブル
 
-* Ruby version
+| Column     | Type    | Options     |
+| ---------- | ------- | ----------- |
+| nickname   | string  | null: false |
+| email      | string  | null: false |
+| password   | string  | null: false |
+| gender_id  | integer | null: false |
+| age_id     | integer | null: false |
 
-* System dependencies
+### Association
+- has_many :books
+- has_many :events
+- has_many :comments
 
-* Configuration
 
-* Database creation
+## books テーブル
 
-* Database initialization
+| Column        | Type    | Options                        |
+| ------------- | ------- | ------------------------------ |
+| user_id       | integer | null: false, foreign_key: true |
+| title         | string  | null: false                    |
+| author        | string  | null: false                    |
+| publisher_id  | string  | null: false                    |
+| genre_id      | integer | null: false                    |
+| isbn          | string  |                                |
 
-* How to run the test suite
+### Association
+- belongs_to :user
+- has_many :events, through :book_events 
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## events テーブル
+| Column         | Type    | Options                        |
+| -------------- | ------- | ------------------------------ |
+| user_id        | integer | null: false, foreign_key: true |
+| book_id        | integer | null: false, foreign_key: true |
+| event_name     | string  | null: false                    |
+| event_comment  | text    | null: false                    |
 
-* ...
+### Association
+- belongs_to :user
+- has_many :books, through :book_events
+
+
+## book_events テーブル
+| Column    | Type       | Options                        |
+| --------- | ---------- | ------------------------------ |
+| book_id   | references | null: false, foreign_key: true |
+| event_id  | references | null: false, foreign_key: true |
+
+### Association
+- belongs_to :book
+- belongs_to :event
+
+
+## comments テーブル
+| Column    | Type    | Options                        |
+| --------- | ------- | ------------------------------ |
+| book_id   | integer | null: false, foreign_key: true |
+| event_id  | integer | null: false, foreign_key: true |
+| comment   | integer | null: false                    |
+
+### Association
+- belongs_to :user
+- belongs_to :event
