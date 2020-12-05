@@ -1,0 +1,65 @@
+<div class='main'> 
+  <div class='hoge'>
+  </div>
+  <div class='second-header'>
+    <div class='title-contents'>
+      <div class='title-contents-words'>
+        <h1 class='service-title'>BOOK LINK</h1>
+        <h2 class='service-explain1'>〜本との出会いを読者との繋がりを〜</h2>
+        <p class='service-explain2'>BookLinkは自分視点で本の情報を発信出来るアプリです</p>
+      </div>
+      <div class='select-contents'> 
+        <ul class='contents-lists'>
+          <li class='list'> 
+            <%= link_to image_tag("contents01.png", size:'130x150') , "/" %>
+          </li>
+          <li class='list'>
+            <%= link_to image_tag("contents02.png", size:'130x150'), "/" %>
+          </li>
+          <li class='list'>
+            <%= link_to image_tag("contents03.png", size:'130x150'), "/" %>
+          </li>
+        </ul>
+      </div>
+  </div>
+ <%#  
+  <div class='books-contents'>
+    <h2 class='title'>登録ラインナップ</h2>
+    <div id='bookslider'>
+      <ul class="bxslider">
+        <% if @books != blank? %>
+          <%# <% @books.each do |book| %> 
+            <%# <%= link_to new_book_path do %> 
+              <%# <li class='book-list'> 
+                <div class='item-img-content'> 
+                  <%= image_tag book.image.variant(resize: '120x125'), class: "book-img" if book.image.attached? %>
+                <%# </div> 
+                <div class='book-info'>
+                  <h3 class='book-title'>
+                    <%= book.title %>
+                  <%# </h3> 
+                </div>
+              </li>
+            <% end %>
+          <%# <% end %>
+        <%# <% end %> 
+      <%# </ul> 
+    </div>
+  </div>
+
+  <script>
+    $(document).ready(function(){
+      $('.bxslider').bxSlider({
+        auto: true,           // 自動スライド
+        speed: 1000,          // スライドするスピード
+        moveSlides: 1,        // 移動するスライド数
+        pause: 3000,          // 自動スライドの待ち時間
+        maxSlides: 6,         // 一度に表示させる最大数
+        slideWidth: 250,      // 各スライドの幅
+        randomStart: true,    // 最初に表示するスライドをランダムに設定
+        autoHover: true       // ホバー時に自動スライドを停止
+      });
+    });
+  </script> %>
+
+</div>
