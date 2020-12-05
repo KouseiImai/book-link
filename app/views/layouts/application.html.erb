@@ -1,15 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BookLink</title>
+    <title>Book Link</title>
+    <%= favicon_link_tag('favicon.png')%>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <%= render "shared/header" %>
+    </header>
+    <div >
+      <%= yield %>
+    </div>
+    <footer>
+      <%= render "shared/footer" %>
+    </footer>
   </body>
+  
 </html>
