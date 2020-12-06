@@ -3,9 +3,17 @@
 class DeviseCreateUsers < ActiveRecord::Migration[6.0]
   def change
     create_table :users do |t|
+      #ニックネーム追加
+      t.string :nickname, null:false
+
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
+
+      #性別・年齢追加
+      t.integer :gender_id, null:false
+      t.integer :age_id, null:false
+      
 
       ## Recoverable
       t.string   :reset_password_token
