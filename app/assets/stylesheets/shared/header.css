@@ -1,0 +1,62 @@
+* {
+  box-sizing: border-box;
+}
+
+.top-page-header {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: fixed;
+  background: rgba(255,255,255,0.6);
+  z-index: 9999;
+}
+
+.main_logo-icon {
+  margin-left: 2vw;
+  height: 5vw;
+}
+
+.nav {
+  font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 1vh 0 0 0;
+}
+
+.lists {
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+
+.user-nickname,.login {
+  margin-left: 3vw;
+  color: #333333;
+  font-weight: bold;
+  text-align: center;
+}
+
+.logout,.sign-up {
+  margin: 0 4vw 0 3vw;
+  color: #333333;
+  font-weight: bold;
+  text-align: center;
+
+}
+
+.book-new {
+  margin-left: 5vw;
+  color: #333333;
+  font-weight: bold;
+  text-align: center;
+}
+
+.book-search {
+  margin: 0 3vw ;
+  color: #333333;
+  font-weight: bold;
+  text-align: center;
+}
