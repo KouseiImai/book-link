@@ -16,7 +16,7 @@
         </div>
         <div class="field">
           <label>性別 (必須)</label>
-          <%# <%= f.collection_select(:gender_id, Gender.all, :id, :name, {prompt: '---'}, {class:"genre-select"}) %> %>
+          <%= f.collection_select(:gender_id, Gender.all, :id, :name, {prompt: '---'}, {class:"genre-select"}) %>
         </div>
         <div class="field">
           <label>年齢 (必須)</label>
@@ -25,7 +25,7 @@
         <div class="field">
           <label>パスワード (必須)</label>
           <% if @minimum_password_length %>
-            <em>(<%= @minimum_password_length %>文字で入力して下さい)</em>
+            <em>(<%= @minimum_password_length %>文字以上で入力して下さい)</em>
           <% end %><br />
           <%= f.password_field :password, autocomplete: "off" %>
         </div>
