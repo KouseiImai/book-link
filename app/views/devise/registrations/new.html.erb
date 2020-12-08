@@ -20,7 +20,7 @@
         </div>
         <div class="field">
           <label>年齢 (必須)</label>
-          <%# <%= f.collection_select(:age_id, Age.all, :id, :name, {prompt: '---'}, {class:"genre-select"}) %> %>
+          <%= f.collection_select(:age_id, Age.all, :id, :name, {prompt: '---'}, {class:"genre-select"}) %>
         </div>
         <div class="field">
           <label>パスワード (必須)</label>
