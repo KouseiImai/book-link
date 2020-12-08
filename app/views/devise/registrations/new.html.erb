@@ -15,11 +15,11 @@
           <%= f.email_field :email %>
         </div>
         <div class="field">
-          <label>性別 (必須)</label>
+          <label>性別 (必須)</label><br>
           <%= f.collection_select(:gender_id, Gender.all, :id, :name, {prompt: '---'}, {class:"genre-select"}) %>
         </div>
         <div class="field">
-          <label>年齢 (必須)</label>
+          <label>年齢 (必須)</label><br>
           <%= f.collection_select(:age_id, Age.all, :id, :name, {prompt: '---'}, {class:"genre-select"}) %>
         </div>
         <div class="field">
