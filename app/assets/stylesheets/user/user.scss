@@ -69,10 +69,12 @@ form input[type="submit"]:hover {
 }
 
 .genre-select {
-  margin-top: 5px;
-  padding-left: 10px;
   height: 30px;
   width: 180px;
+  margin: 5px 0 15px;
+  border: 1px solid #D8D8D8;
+  border-radius: 5px;
+  font-family: "游ゴシック", "YuGothic";
 }
 
 .actions {
