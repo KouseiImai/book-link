@@ -1,0 +1,42 @@
+<div class="user-main">
+  <div class='hoge'>
+  </div>
+  <div class="contents row">
+    <div class="container">
+      <h2 class="h2">会員登録</h2>
+      <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+        <%= devise_error_messages! %>
+        <div class="field">
+          <label>ニックネーム (必須) (40字以内で入力して下さい)</label>
+          <%= f.text_field :nickname %>
+        </div>
+        <div class="field">
+          <label>メールアドレス (必須)</label>
+          <%= f.email_field :email %>
+        </div>
+        <div class="field">
+          <label>性別 (必須)</label><br>
+          <%= f.collection_select(:gender_id, Gender.all, :id, :name, {prompt: '---'}, {class:"genre-select"}) %>
+        </div>
+        <div class="field">
+          <label>年齢 (必須)</label><br>
+          <%= f.collection_select(:age_id, Age.all, :id, :name, {prompt: '---'}, {class:"genre-select"}) %>
+        </div>
+        <div class="field">
+          <label>パスワード (必須)</label>
+          <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %>文字以上の英数字で入力して下さい)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "off" %>
+        </div>
+        <div class="field">
+          <label>パスワード確認用 (必須)</label>
+          <%= f.password_field :password_confirmation, autocomplete: "off" %>
+        </div>
+        <div class="actions">
+          <%= f.submit "登録" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
