@@ -4,43 +4,52 @@
   <div class="book-info-form">
     <h1 class="h1">新たに本を登録する</h1>
     <%= form_with url: new_book_path, method: :post, local: true do |f| %>
-      <div class="field">
-        <label>ISBN </label>
+      <div class="form-field">
+        <label>ISBN</label><nobr class="complement">（ ISBNの入力で本の情報を検索出来ます。 ）</nobr>
         <div class="isbn-fild">
           <%= f.text_field :isbn, id:"isbn", class:"isbn-form" %>
           <button id="getBookContents" class="get-book-info-button">検索</button>
         </div>
+        <p class="complement">※ISBNは本の裏表紙ISBNコード若くはジャンコードに記載されている「9784」から始まる13桁の数字です。</p>
+        <p class="example-numbers">(例：9784839962227)</p>
       </div>
-      <div class="field">
+      <div class="form-field">
         <div id="thumbnail"></div>
       </div>
-      <div class="field">
+      <div class="form-field">
         <label>タイトル (必須)</label>
         <%= f.text_field :title, id:"title", class:"title-form book-info" %>
       </div>
-      <div class="field">
+      <div class="form-field">
         <label>出版社 (必須)</label>
         <%= f.text_field :publisher, id:"publisher", class:"publisher-form book-info" %>
       </div>
-      <div class="field">
+      <div class="form-field">
         <label>著者 (必須)</label>
         <%= f.text_field :author, id:"author", class:"author-form book-info" %>
       </div>
-      <div class="field">
+      <div class="form-field">
         <label hidden>発売日 </label>
         <%= f.hidden_field :pubdate, id:"pubdate", class:"pubdate-form book-info"%>
       </div>
-      <div class="field">
+      <div class="form-field">
         <label>ジャンル </label><br>
-        <%= f.collection_select(:ccode_firstdigit_id, CcodeFirstdigit.all, :id, :name, {prompt: '---'}, {class:"genre-select book-info", id:"c_code_first"}) %>
-        <%= f.collection_select(:ccode_seconddigit_id, CcodeSeconddigit.all, :id, :name, {prompt: '---'}, {class:"genre-select book-info", id:"c_code_second"}) %>
-        <%= f.collection_select(:ccode_thirddigit_id, CcodeThirddigit.all, :id, :name, {prompt: '---'}, {class:"genre-select book-info", id:"c_code_third"}) %>
+        <p class="complement">※自動入力されなかった際は選択して下さい。(情報が無くとも登録は可能です)</p>
+        <div class="c_code-complement">販売対象：
+          <%= f.collection_select(:ccode_firstdigit_id, CcodeFirstdigit.all, :id, :name, {prompt: '---'}, {class:"category-firstselect book-info", id:"c_code_first"}) %>
+        </div>
+        <div class="c_code-complement">書籍形態：
+          <%= f.collection_select(:ccode_seconddigit_id, CcodeSeconddigit.all, :id, :name, {prompt: '---'}, {class:"category-secondselect book-info", id:"c_code_second"}) %>
+        </div>
+        <div class="c_code-complement">　　内容：
+          <%= f.collection_select(:ccode_thirddigit_id, CcodeThirddigit.all, :id, :name, {prompt: '---'}, {class:"category-thirdselect book-info", id:"c_code_third"}) %>
+        </div>
       </div>
-      <div class="field">
-        <label>内容 (必須)</label>
+      <div class="form-field">
+        <label>内容 </label>
         <%= f.text_area :description, id:"description", class:"description-form book-info" %>
       </div>
-      <div class="field">
+      <div class="form-field">
         <label hidden>説明 </label>
         <%= f.hidden_field :keyword, id:"keyword", class:"keyword-form book-info" %>
       </div>
@@ -64,9 +73,9 @@
             alert("データが見つかりません");
           } else {
             if( data[0].summary.cover == "" ){
-                $("#thumbnail").html('<p>画像がありません</p>');
+                $("#thumbnail").html('<label>イメージ画像がありません</label>');
             } else {
-                $("#thumbnail").html('<img src=\"' + data[0].summary.cover + '\" style=\"border:solid 1px #000000\" />');
+                $("#thumbnail").html('<label>イメージ</label><br><img src=\"' + data[0].summary.cover + '\" style=\"border:solid 1px #000000\" />');
             }
             console.log(data[0])
             $("#title").val(data[0].summary.title);

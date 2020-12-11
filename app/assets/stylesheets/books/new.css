@@ -37,12 +37,48 @@
   height: 200px;
 }
 
-label {
+.field {
+  margin-top: 12px;
+}
+
+.form-field {
   color: #333333;
   text-shadow: none;
   font-weight: bold;
+  font-size: 20px;
+}
+
+.complement,.c_code-complement {
+  color: black;
+  text-shadow: none;
+  font-size: 15px;
+}
+
+.example-numbers {
+  color: black;
+  text-shadow: none;
+  font-size: small;
+  margin-bottom: 15px;
+}
+
+.category-firstselect,.category-secondselect {
+  height: 30px;
+  width: 180px;
+  margin-top: 15px;
+  border: 1px solid #D8D8D8;
+  border-radius: 5px;
+  font-family: "游ゴシック", "YuGothic";
+}
+
+.category-thirdselect {
+  height: 30px;
+  width: 180px;
+  margin: 15px 0 20px 0;
+  border: 1px solid #D8D8D8;
+  border-radius: 5px;
+  font-family: "游ゴシック", "YuGothic";
 }
 
 .send-btn {
-  
+
 }
