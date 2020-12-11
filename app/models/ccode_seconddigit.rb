@@ -1,0 +1,2 @@
+class CcodeSeconddigit < ApplicationRecord
+end

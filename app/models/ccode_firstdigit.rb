@@ -1,0 +1,2 @@
+class CcodeFirstdigit < ApplicationRecord
+end

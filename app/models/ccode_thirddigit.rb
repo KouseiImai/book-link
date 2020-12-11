@@ -1,0 +1,2 @@
+class CcodeThirddigit < ApplicationRecord
+end
