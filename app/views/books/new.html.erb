@@ -9,7 +9,7 @@
     </div>
     <div class="field">
       <label>イメージ </label>
-      <%= f.text_field :cover, id:"cover", class:"cover-form" %>
+      <p id="thumbnail"></p>
     </div>
     <div class="field">
       <label>タイトル (必須)</label>
@@ -24,13 +24,53 @@
       <%= f.text_field :author, id:"author", class:"author-form" %>
     </div>
     <div class="field">
+      <label hidden>発売日 </label>
+      <%= f.hidden_field :pubdate, id:"pubdate", class:"pubdate-form"%>
+    </div>
+    <div class="field">
       <label>ジャンル (必須)</label>
-      <%= f.text_field :series, id:"series", class:"series-form" %>
+      <%= f.text_field :c_code, id:"c_code", class:"c_code-form" %>
     </div>
     <div class="field">
       <label>内容 (必須)</label>
       <%= f.text_area :description, id:"description", class:"description-form" %>
     </div>
+    <div class="field">
+      <label hidden>説明 </label>
+      <%= f.hidden_field :keyword, id:"keyword", class:"keyword-form" %>
+    </div>
   <% end %>
+
+
+
+
+  <script>
+    $(function() {
+        $('#getBookContents').click( function( e ) {
+            e.preventDefault();
+            const isbn = $("#isbn").val();
+            const url = "https://api.openbd.jp/v1/get?isbn=" + isbn;
+            $.getJSON( url, function( data ) {
+                if( data[0] == null ) {
+                    alert("データが見つかりません");
+                } else {
+                    if( data[0].summary.cover == "" ){
+                        $("#thumbnail").html('<img src=\"\" />');
+                    } else {
+                        $("#thumbnail").html('<img src=\"' + data[0].summary.cover + '\" style=\"border:solid 1px #000000\" />');
+                    }
+                    console.log(data[0])
+                    $("#title").val(data[0].summary.title);
+                    $("#publisher").val(data[0].summary.publisher);
+                    $("#author").val(data[0].summary.author);
+                    $("#pubdate").val(data[0].summary.pubdate);
+                    $("#description").val(data[0].onix.CollateralDetail.TextContent[1].Text);
+                    $("#c_code").val(data[0].onix.DescriptiveDetail.Subject[0].SubjectCode);
+                    $("#keyword").val(data[0].onix.DescriptiveDetail.Subject[1].SubjectHeadingText);
+                }
+            });
+        });
+    });
+</script>
 
 </div>
