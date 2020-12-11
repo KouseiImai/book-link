@@ -30,7 +30,7 @@
       </div>
       <div class="form-field">
         <label hidden>発売日 </label>
-        <%= f.hidden_field :pubdate, id:"pubdate", class:"pubdate-form book-info"%>
+        <%= f.hidden_field :publication_date, id:"pubdate", class:"pubdate-form book-info"%>
       </div>
       <div class="form-field">
         <label>ジャンル </label><br>
@@ -53,8 +53,8 @@
         <label hidden>説明 </label>
         <%= f.hidden_field :keyword, id:"keyword", class:"keyword-form book-info" %>
       </div>
-      <div class="send-btn">
-        <%= f.submit "登録する" %>
+      <div class="btn">
+        <%= f.submit "登録する", class:"send-btn" %>
       </div>
     <% end %>
   </div>

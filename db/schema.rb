@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_06_121738) do
+ActiveRecord::Schema.define(version: 2020_12_11_123847) do
+
+  create_table "books", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "publisher", null: false
+    t.string "author", null: false
+    t.string "publication_date"
+    t.string "isbn", null: false
+    t.integer "ccode_firstdigit_id"
+    t.integer "ccode_seconddigit_id"
+    t.integer "ccode_thirddigit_id"
+    t.text "description"
+    t.string "keyword"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
