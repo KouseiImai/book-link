@@ -1,3 +1,17 @@
+.h1 {
+  color: #333333;
+  text-shadow: none;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.book-info-form {
+  background-color: white;
+  padding: 50px;
+}
+
 .isbn-fild{
   display: flex;
 }
@@ -21,4 +35,14 @@
 
 .description-form {
   height: 200px;
+}
+
+label {
+  color: #333333;
+  text-shadow: none;
+  font-weight: bold;
+}
+
+.send-btn {
+  
 }

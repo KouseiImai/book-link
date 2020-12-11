@@ -1,48 +1,54 @@
 <div class='main'> 
   <div class='hoge'>
   </div>
-  <%= form_with url: new_book_path, method: :post, local: true do |f| %>
-    <div class="field">
-      <label>ISBN </label>
-      <div class="isbn-fild">
-        <%= f.text_field :isbn, id:"isbn", class:"isbn-form" %>
-        <button id="getBookContents" class="get-book-info-button">検索</button>
+  <div class="book-info-form">
+    <h1 class="h1">新たに本を登録する</h1>
+    <%= form_with url: new_book_path, method: :post, local: true do |f| %>
+      <div class="field">
+        <label>ISBN </label>
+        <div class="isbn-fild">
+          <%= f.text_field :isbn, id:"isbn", class:"isbn-form" %>
+          <button id="getBookContents" class="get-book-info-button">検索</button>
+        </div>
       </div>
-    </div>
-    <div class="field">
-      <div id="thumbnail"></div>
-    </div>
-    <div class="field">
-      <label>タイトル (必須)</label>
-      <%= f.text_field :title, id:"title", class:"title-form book-info" %>
-    </div>
-    <div class="field">
-      <label>出版社 (必須)</label>
-      <%= f.text_field :publisher, id:"publisher", class:"publisher-form book-info" %>
-    </div>
-    <div class="field">
-      <label>著者 (必須)</label>
-      <%= f.text_field :author, id:"author", class:"author-form book-info" %>
-    </div>
-    <div class="field">
-      <label hidden>発売日 </label>
-      <%= f.hidden_field :pubdate, id:"pubdate", class:"pubdate-form book-info"%>
-    </div>
-    <div class="field">
-      <label>ジャンル </label><br>
-      <%= f.collection_select(:ccode_firstdigit_id, CcodeFirstdigit.all, :id, :name, {prompt: '---'}, {class:"genre-select book-info", id:"c_code_first"}) %>
-      <%= f.collection_select(:ccode_seconddigit_id, CcodeSeconddigit.all, :id, :name, {prompt: '---'}, {class:"genre-select book-info", id:"c_code_second"}) %>
-      <%= f.collection_select(:ccode_thirddigit_id, CcodeThirddigit.all, :id, :name, {prompt: '---'}, {class:"genre-select book-info", id:"c_code_third"}) %>
-    </div>
-    <div class="field">
-      <label>内容 (必須)</label>
-      <%= f.text_area :description, id:"description", class:"description-form book-info" %>
-    </div>
-    <div class="field">
-      <label hidden>説明 </label>
-      <%= f.hidden_field :keyword, id:"keyword", class:"keyword-form book-info" %>
-    </div>
-  <% end %>
+      <div class="field">
+        <div id="thumbnail"></div>
+      </div>
+      <div class="field">
+        <label>タイトル (必須)</label>
+        <%= f.text_field :title, id:"title", class:"title-form book-info" %>
+      </div>
+      <div class="field">
+        <label>出版社 (必須)</label>
+        <%= f.text_field :publisher, id:"publisher", class:"publisher-form book-info" %>
+      </div>
+      <div class="field">
+        <label>著者 (必須)</label>
+        <%= f.text_field :author, id:"author", class:"author-form book-info" %>
+      </div>
+      <div class="field">
+        <label hidden>発売日 </label>
+        <%= f.hidden_field :pubdate, id:"pubdate", class:"pubdate-form book-info"%>
+      </div>
+      <div class="field">
+        <label>ジャンル </label><br>
+        <%= f.collection_select(:ccode_firstdigit_id, CcodeFirstdigit.all, :id, :name, {prompt: '---'}, {class:"genre-select book-info", id:"c_code_first"}) %>
+        <%= f.collection_select(:ccode_seconddigit_id, CcodeSeconddigit.all, :id, :name, {prompt: '---'}, {class:"genre-select book-info", id:"c_code_second"}) %>
+        <%= f.collection_select(:ccode_thirddigit_id, CcodeThirddigit.all, :id, :name, {prompt: '---'}, {class:"genre-select book-info", id:"c_code_third"}) %>
+      </div>
+      <div class="field">
+        <label>内容 (必須)</label>
+        <%= f.text_area :description, id:"description", class:"description-form book-info" %>
+      </div>
+      <div class="field">
+        <label hidden>説明 </label>
+        <%= f.hidden_field :keyword, id:"keyword", class:"keyword-form book-info" %>
+      </div>
+      <div class="send-btn">
+        <%= f.submit "登録する" %>
+      </div>
+    <% end %>
+  </div>
 
   <script>
     $(function() {
