@@ -15,6 +15,11 @@
       </div>
       <div class="form-field">
         <div id="thumbnail"></div>
+        <%= f.hidden_field :image, id:"book-images"%>
+        <div id="book-image-field">
+          <label>イメージ </label>
+          <%= f.file_field :image, id:"book-image" %>
+        </div>
       </div>
       <div class="form-field">
         <label>タイトル (必須)</label>
@@ -65,6 +70,7 @@
         e.preventDefault();
         $('.book-info').val(" ");
         $("#thumbnail").html(' ');
+        $("#book-image-field").css({'visibility':'visible','display':'inline'});
         const isbn = $("#isbn").val();
         const url = "https://api.openbd.jp/v1/get?isbn=" + isbn;
 
@@ -73,9 +79,10 @@
             alert("データが見つかりません");
           } else {
             if( data[0].summary.cover == "" ){
-                $("#thumbnail").html('<label>イメージ画像がありません</label>');
+              $("#thumbnail").html('<label>イメージ画像がありません可能でしたら画像を登録して下さい</label>');
             } else {
-                $("#thumbnail").html('<label>イメージ</label><br><img src=\"' + data[0].summary.cover + '\" style=\"border:solid 1px #000000\" />');
+              $("#thumbnail").html('<label>イメージ</label><br><img src=\"' + data[0].summary.cover + '\" style=\"margin: 5px 0 20px 0\" />');
+              $("#book-image-field").css({'visibility':'hidden','display':'none'});
             }
             console.log(data[0])
             $("#title").val(data[0].summary.title);
@@ -91,6 +98,11 @@
             $("#c_code_first").val(c_code_first);
             $("#c_code_second").val(c_code_second);
             $("#c_code_third").val(c_code_third);
+            const test = data[0].summary.cover;
+            const test2 = test.slice(0,-1);
+            console.log(test2);
+            $("#book-images").val(data[0].summary.cover);
+            $("#book-image").val(test2);
           }
         });
       });
