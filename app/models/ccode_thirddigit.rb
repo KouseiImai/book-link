@@ -69,4 +69,8 @@ class CcodeThirddigit < ActiveHash::Base
     { id: 97, name: '外国文学小説'},
     { id: 98, name: '外国文学、その他'}
   ]
+
+  include ActiveHash::Associations
+  has_many :books
+
 end

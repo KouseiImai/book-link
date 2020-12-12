@@ -11,4 +11,8 @@ class CcodeFirstdigit < ActiveHash::Base
     { id: 8, name: '児童'},
     { id: 9, name: '雑誌扱い'},
   ]
+
+  include ActiveHash::Associations
+  has_many :books
+  
 end

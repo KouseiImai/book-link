@@ -11,4 +11,8 @@ class CcodeSeconddigit < ActiveHash::Base
     { id: 8, name: '磁性媒体など'},
     { id: 9, name: 'コミック'},
   ]
+
+  include ActiveHash::Associations
+  has_many :books
+
 end
