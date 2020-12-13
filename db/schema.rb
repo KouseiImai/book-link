@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2020_12_11_143841) do
   end
 
   create_table "books", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id", null: false
     t.string "title", null: false
     t.string "publisher", null: false
     t.string "author", null: false
@@ -42,6 +43,7 @@ ActiveRecord::Schema.define(version: 2020_12_11_143841) do
     t.integer "ccode_firstdigit_id"
     t.integer "ccode_seconddigit_id"
     t.integer "ccode_thirddigit_id"
+    t.string "cover"
     t.text "description"
     t.string "keyword"
     t.datetime "created_at", precision: 6, null: false
