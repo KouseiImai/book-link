@@ -3,23 +3,25 @@
   </div>
   <div class="book-info-form">
     <h1 class="h1">新たに本を登録する</h1>
-    <%= form_with url: new_book_path, method: :post, local: true do |f| %>
+    <%= form_with model: @book, url: books_path, local: true do |f| %>
       <div class="form-field">
         <label>ISBN</label><nobr class="complement">（ ISBNの入力で本の情報を検索出来ます。 ）</nobr>
         <div class="isbn-fild">
           <%= f.text_field :isbn, id:"isbn", class:"isbn-form" %>
           <button id="getBookContents" class="get-book-info-button">検索</button>
         </div>
-        <p class="complement">※ISBNは本の裏表紙ISBNコード若くはジャンコードに記載されている「9784」から始まる13桁の数字です。</p>
+        <p class="complement">※ISBNは本の裏表紙ISBNコード若くはジャンコードに記載されている「978」から始まる13桁の数字です。</p>
         <p class="example-numbers">(例：9784839962227)</p>
       </div>
       <div class="form-field">
         <div id="thumbnail"></div>
-        <%= f.hidden_field :image, id:"book-images"%>
+        <div class="book-image-field">
+          <%= f.hidden_field :cover, id:"book-image" %>
+        </div>
         <div id="book-image-field">
           <label>イメージ </label>
-          <%= f.file_field :image, id:"book-image" %>
-        </div>
+          <%= f.file_field :image %>
+        </div> 
       </div>
       <div class="form-field">
         <label>タイトル (必須)</label>
@@ -98,11 +100,7 @@
             $("#c_code_first").val(c_code_first);
             $("#c_code_second").val(c_code_second);
             $("#c_code_third").val(c_code_third);
-            const test = data[0].summary.cover;
-            const test2 = test.slice(0,-1);
-            console.log(test2);
-            $("#book-images").val(data[0].summary.cover);
-            $("#book-image").val(test2);
+            $("#book-image").val(data[0].summary.cover);
           }
         });
       });
