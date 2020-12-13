@@ -47,6 +47,10 @@ a {
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
 }
 
+#bookslider {
+  background-color: rgba(255,255,255,0.6);
+}
+
 .books-lists {
   display: flex;
 }
@@ -322,4 +326,9 @@ a {
 
 .star-count {
   font-size: 2vh;
+}
+
+.book_cover {
+  height: 286px;
+  width: 200px;
 }

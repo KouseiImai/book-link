@@ -86,7 +86,6 @@
               $("#thumbnail").html('<label>イメージ</label><br><img src=\"' + data[0].summary.cover + '\" style=\"margin: 5px 0 20px 0\" />');
               $("#book-image-field").css({'visibility':'hidden','display':'none'});
             }
-            console.log(data[0])
             $("#title").val(data[0].summary.title);
             $("#publisher").val(data[0].summary.publisher);
             $("#author").val(data[0].summary.author);
@@ -100,7 +99,9 @@
             $("#c_code_first").val(c_code_first);
             $("#c_code_second").val(c_code_second);
             $("#c_code_third").val(c_code_third);
-            $("#book-image").val(data[0].summary.cover);
+            const book_image = data[0].summary.cover;
+            book_image.slice(0,-1);
+            $("#book-image").val(book_image);
           }
         });
       });

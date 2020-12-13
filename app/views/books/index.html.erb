@@ -21,29 +21,34 @@
           </li>
         </ul>
       </div>
+    </div>
   </div>
- <%#  
+
   <div class='books-contents'>
-    <h2 class='title'>登録ラインナップ</h2>
+    <h2 class='title'>登録されている書籍</h2>
     <div id='bookslider'>
       <ul class="bxslider">
         <% if @books != blank? %>
-          <%# <% @books.each do |book| %> 
-            <%# <%= link_to new_book_path do %> 
-              <%# <li class='book-list'> 
-                <div class='item-img-content'> 
-                  <%= image_tag book.image.variant(resize: '120x125'), class: "book-img" if book.image.attached? %>
-                <%# </div> 
+          <% @books.each do |book| %>
+            <%= link_to new_book_path do %> 
+              <li class='book-list'>
+                <% if book.cover != "" %>
+                  <div class='item-img-content'>
+                    <%= image_tag book.cover, class: 'book_cover' %>
+                  </div> 
+                <% else %>
+                  <%= image_tag book.image.variant(resize: '200x286') %>
+                <% end %>
                 <div class='book-info'>
                   <h3 class='book-title'>
                     <%= book.title %>
-                  <%# </h3> 
+                  </h3> 
                 </div>
               </li>
             <% end %>
-          <%# <% end %>
-        <%# <% end %> 
-      <%# </ul> 
+          <% end %>
+        <% end %> 
+      </ul> 
     </div>
   </div>
 
@@ -60,6 +65,6 @@
         autoHover: true       // ホバー時に自動スライドを停止
       });
     });
-  </script> %>
+  </script>
 
 </div>
