@@ -9,9 +9,9 @@ RSpec.describe User, type: :model do
       it '新規ユーザー登録に関する全てのデータが存在すれば登録出来る' do
         expect(@user).to be_valid
       end
-      it 'passwordが6文字以上の半角英数字で登録出来る' do
+      it 'passwordが6文字以上の英数字で登録出来る' do
         @user.password = 'a12345'
-        @user.password_confirmation = 'a12345'
+        @user.password_confirmation = @user.password
         expect(@user).to be_valid
       end
     end
@@ -50,9 +50,9 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include("パスワードは6文字以上で入力してください")
       end
-      it 'パスワードは半角英数字混合でないと登録出来ない' do
-        @user.password = 'A12345'
-        @user.password_confirmation = 'A12345'
+      it 'パスワードは英数字混合でないと登録出来ない' do
+        @user.password = '123456'
+        @user.password_confirmation = @user.password
         @user.valid?
         expect(@user.errors.full_messages).to include("パスワードは不正な値です")
       end

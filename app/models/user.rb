@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_many :books
-  
+
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :gender, :age
 
@@ -13,8 +13,8 @@ class User < ApplicationRecord
     validates :age_id
     validates :nickname, length: { maximum: 40 }
     validates :email, uniqueness: true, format: { with: /@./ }
-    validates :password, format: { with: /[a-z\d]{6,}/ }
-    validates :password_confirmation, format: { with: /[a-z\d]{6,}/ }
+    validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i }
+    validates :password_confirmation, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i }
   end
 
 end
