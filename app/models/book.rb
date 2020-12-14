@@ -7,5 +7,13 @@ class Book < ApplicationRecord
   belongs_to_active_hash :CcodeSeconddigit
   belongs_to_active_hash :CcodeThirddigit
 
+  # バリデーション
+  with_options presence: true do
+    validates :user_id
+    validates :title
+    validates :publisher
+    validates :author
+    validates :isbn, numericality: { onry_integer: true }, length: { is: 13 }
+  end
 
 end

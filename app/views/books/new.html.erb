@@ -80,6 +80,7 @@
           if( data[0] == null ) {
             alert("データが見つかりません");
           } else {
+            $("#isbn").val(isbn.replace(/-/g,''));
             if( data[0].summary.cover == "" ){
               $("#thumbnail").html('<label>イメージ画像がありません可能でしたら画像を登録して下さい</label>');
             } else {
@@ -91,7 +92,7 @@
             $("#author").val(data[0].summary.author);
             $("#pubdate").val(data[0].summary.pubdate);
             $("#description").val(data[0].onix.CollateralDetail.TextContent[1].Text);
-            $("#keyword").val(data[0].onix.DescriptiveDetail.Subject[1].SubjectHeadingText);
+            $("#keyword").val((data[0].onix.DescriptiveDetail.Subject[1].SubjectHeadingText).replace(/;;/g,''));
             const c_code = Number(data[0].onix.DescriptiveDetail.Subject[0].SubjectCode);
             const c_code_first = parseInt((c_code / 1000), 10);
             const c_code_second = parseInt((c_code / 100 ) % 10, 10);
