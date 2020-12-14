@@ -338,6 +338,18 @@ a {
   text-shadow: none;
 }
 
+.bx-controls-direction {
+  display: flex;
+  justify-content: space-between;
+  text-shadow: none;
+  visibility: hidden;
+  display: none;
+}
+
+.bx-prev,.bx-next {
+  color: black;
+}
+
 .bx-pager-item {
   visibility: hidden;
   display: none;
