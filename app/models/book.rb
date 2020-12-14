@@ -13,7 +13,7 @@ class Book < ApplicationRecord
     validates :title
     validates :publisher
     validates :author
-    validates :isbn, numericality: { onry_integer: true }, length: { is: 13 }
+    validates :isbn, length: { is: 13 }, format: { with: /\A[9]\A[7]\A[8]\d{10}/ }
   end
 
 end
