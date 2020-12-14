@@ -7,7 +7,7 @@
       <div class="form-field">
         <label>ISBN</label><nobr class="complement">（ ISBNの入力で本の情報を検索出来ます。 ）</nobr>
         <div class="isbn-fild">
-          <%= f.text_field :isbn, id:"isbn", class:"isbn-form" %>
+          <%= f.text_field :isbn, autofocus: true, id:"isbn", class:"isbn-form" %>
           <button id="getBookContents" class="get-book-info-button">検索</button>
         </div>
         <p class="complement">※ISBNは本の裏表紙ISBNコード若くはジャンコードに記載されている「978」から始まる13桁の数字です。</p>
