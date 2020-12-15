@@ -1,0 +1,94 @@
+.h1 {
+  color: #333333;
+  text-shadow: none;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.book-info-form {
+  background-color: white;
+  padding: 50px;
+}
+
+.isbn-field{
+  display: flex;
+}
+
+.isbn-form,.field_with_errors {
+  width: 100%;
+}
+
+.get-book-info-button {
+  width: 10vw;
+  margin: 5px 0 15px 5px;
+  padding: 10px;
+  border: 1px solid #D8D8D8;
+  border-radius: 5px;
+  font-family: "游ゴシック", "YuGothic";
+  padding: 8px 20px;
+  font-size: 14px;
+  border: 2px solid #57C3E9;
+  color: #57C3E9;
+  background-color: white;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 3px;
+}
+
+.description-form {
+  height: 200px;
+}
+
+.field {
+  margin-top: 12px;
+}
+
+.form-field {
+  color: #333333;
+  text-shadow: none;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.complement,.c_code-complement {
+  color: black;
+  text-shadow: none;
+  font-size: 15px;
+}
+
+.example-numbers {
+  color: black;
+  text-shadow: none;
+  font-size: small;
+  margin-bottom: 15px;
+}
+
+.category-firstselect,.category-secondselect {
+  height: 30px;
+  width: 180px;
+  margin-top: 15px;
+  border: 1px solid #D8D8D8;
+  border-radius: 5px;
+  font-family: "游ゴシック", "YuGothic";
+}
+
+.category-thirdselect {
+  height: 30px;
+  width: 180px;
+  margin: 15px 0 20px 0;
+  border: 1px solid #D8D8D8;
+  border-radius: 5px;
+  font-family: "游ゴシック", "YuGothic";
+}
+
+.image {
+  border: solid,1px #000000;
+}
+
+.error-alert {
+  color: #cd5c5c;
+  text-shadow: none;
+  margin-bottom: 20px;
+}

@@ -3,6 +3,7 @@ a {
 
 .main {
   width: 100vw;
+  height: 100%;
   background-image: image-url('background.png');
   background-size: cover;
   background-repeat: no-repeat;
@@ -44,6 +45,10 @@ a {
   margin-top: 2vh;
   color: white;
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
+}
+
+#bookslider {
+  background-color: rgba(255,255,255,0.6);
 }
 
 .books-lists {
@@ -321,4 +326,31 @@ a {
 
 .star-count {
   font-size: 2vh;
+}
+
+.book_cover {
+  height: 286px;
+  width: 200px;
+}
+
+.book-info {
+  color: black;
+  text-shadow: none;
+}
+
+.bx-controls-direction {
+  display: flex;
+  justify-content: space-between;
+  text-shadow: none;
+  visibility: hidden;
+  display: none;
+}
+
+.bx-prev,.bx-next {
+  color: black;
+}
+
+.bx-pager-item {
+  visibility: hidden;
+  display: none;
 }

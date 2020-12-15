@@ -8,7 +8,7 @@
         <%= devise_error_messages! %>
         <div class="field">
           <label>ニックネーム (必須) (40字以内で入力して下さい)</label>
-          <%= f.text_field :nickname %>
+          <%= f.text_field :nickname, autofocus: true %>
         </div>
         <div class="field">
           <label>メールアドレス (必須)</label>
@@ -30,7 +30,7 @@
           <%= f.password_field :password, autocomplete: "off" %>
         </div>
         <div class="field">
-          <label>パスワード確認用 (必須)</label>
+          <label>もう一度パスワードを入力して下さい (必須)</label>
           <%= f.password_field :password_confirmation, autocomplete: "off" %>
         </div>
         <div class="actions">
