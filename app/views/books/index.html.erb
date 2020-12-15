@@ -37,7 +37,11 @@
                     <%= image_tag book.cover, class: 'book_cover' %>
                   </div> 
                 <% else %>
-                  <%= image_tag book.image.variant(resize: '200x286') %>
+                  <% if book.image.attached? %>
+                    <%= image_tag book.image.variant(resize: '200x286') %>
+                  <% else %>
+                    <%= image_tag "No image.png", size:'200x286' %>
+                  <% end %>
                 <% end %>
                 <div class='book-info'>
                   <h3 class='book-title'>
