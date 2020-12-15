@@ -9,11 +9,9 @@ class Book < ApplicationRecord
 
   # バリデーション
   with_options presence: true do
-    validates :user_id
     validates :title
     validates :publisher
     validates :author
-    validates :isbn, length: { is: 13 }, format: { with: /\A[9]\A[7]\A[8]\d{10}/ }
+    validates :isbn, length: { is: 13 }, format: { with: /\A978/ }, uniqueness: true
   end
-
 end
