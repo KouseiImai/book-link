@@ -30,7 +30,7 @@
       <ul class="bxslider">
         <% if @books != blank? %>
           <% @books.each do |book| %>
-            <%= link_to new_book_path do %> 
+            <%= link_to book_path(book.id), method: :get do %> 
               <li class='book-list'>
                 <% if book.cover != "" %>
                   <div class='item-img-content'>
