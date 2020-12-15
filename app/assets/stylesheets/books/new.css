@@ -16,6 +16,10 @@
   display: flex;
 }
 
+.isbn-form,.field_with_errors {
+  width: 100%;
+}
+
 .get-book-info-button {
   width: 10vw;
   margin: 5px 0 15px 5px;
@@ -81,4 +85,10 @@
 
 .image {
   border: solid,1px #000000;
+}
+
+.error-alert {
+  color: #cd5c5c;
+  text-shadow: none;
+  margin-bottom: 20px;
 }

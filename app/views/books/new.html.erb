@@ -4,6 +4,7 @@
   <div class="book-info-form">
     <h1 class="h1">新たに本を登録する</h1>
     <%= form_with model: @book, url: books_path, local: true do |f| %>
+      <%= render 'shared/error_messages', model: f.object %>
       <div class="form-field">
         <label>ISBN</label><nobr class="complement">（ ISBNの入力で本の情報を検索出来ます。 ）</nobr>
         <div class="isbn-fild">

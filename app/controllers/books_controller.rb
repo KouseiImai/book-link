@@ -10,7 +10,8 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(book_params)
-    if  @book.save!
+    if  @book.valid?
+      @book.save
       redirect_to root_path
     else
       render :new
