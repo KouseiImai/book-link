@@ -1,0 +1,55 @@
+<div class='main'> 
+  <div class='hoge'>
+  </div>
+  <div class="book-data">
+    <div id="book-image">
+      <% if @book.cover != "" %>
+        <div class='item-img-content'>
+          <%= image_tag @book.cover, class: 'book_cover' %>
+        </div> 
+      <% else %>
+        <% if @book.image.attached? %>
+          <%= image_tag @book.image.variant(resize: '200x286') %>
+        <% else %>
+          <%= image_tag "No image.png", size:'200x286' %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="book-title">
+      <label>タイトル (必須)</label>
+      <%= @book.title %>
+    </div>
+    <div class="book-puplisher">
+      <label>出版社 (必須)</label>
+      <%= @book.publisher %>
+    </div>
+    <div class="book-author">
+      <label>著者 (必須)</label>
+      <%= @book.author %>
+    </div>
+    <div class="book-publication">
+      <label>発売日 </label>
+      <%= @book.publication_date %>
+    </div>
+    <div class="book-genre">
+      <label>ジャンル </label><br>
+      <div class="c_code-complement">
+        <%= @book.ccode_firstdigit_id %>
+      </div>
+      <div class="c_code-complement">
+        <%= @book.ccode_seconddigit_id %>
+      </div>
+      <div class="c_code-complement">
+        <%= @book.ccode_thirddigit_id %>
+      </div>
+    </div>
+    <div class="book-description">
+      <label>内容 </label>
+      <%= @book.description %>
+    </div>
+    <div class="book-keyword">
+      <label>説明 </label>
+      <%= @book.keyword %>
+    </div>
+  </div>
+</div>
