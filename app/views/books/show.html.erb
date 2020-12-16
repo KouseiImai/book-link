@@ -2,54 +2,67 @@
   <div class='hoge'>
   </div>
   <div class="book-data">
-    <div id="book-image">
-      <% if @book.cover != "" %>
-        <div class='item-img-content'>
-          <%= image_tag @book.cover, class: 'book_cover' %>
-        </div> 
-      <% else %>
-        <% if @book.image.attached? %>
-          <%= image_tag @book.image.variant(resize: '200x286') %>
+    <div class="left-content">
+      <div class="show-book-title">
+        <%= @book.title %>
+      </div>
+      <div class="book-image">
+        <% if @book.cover != "" %>
+          <div class='item-img-content'>
+            <%= image_tag @book.cover, class: 'book_cover' %>
+          </div> 
         <% else %>
-          <%= image_tag "No image.png", size:'200x286' %>
+          <% if @book.image.attached? %>
+            <%= image_tag @book.image.variant(resize: '200x286') %>
+          <% else %>
+            <%= image_tag "No image.png", size:'200x286' %>
+          <% end %>
         <% end %>
-      <% end %>
-    </div>
-    <div class="book-title">
-      <label>タイトル (必須)</label>
-      <%= @book.title %>
-    </div>
-    <div class="book-puplisher">
-      <label>出版社 (必須)</label>
-      <%= @book.publisher %>
-    </div>
-    <div class="book-author">
-      <label>著者 (必須)</label>
-      <%= @book.author %>
-    </div>
-    <div class="book-publication">
-      <label>発売日 </label>
-      <%= @book.publication_date %>
-    </div>
-    <div class="book-genre">
-      <label>ジャンル </label><br>
-      <div class="c_code-complement">
-        <%= @book.ccode_firstdigit_id %>
       </div>
-      <div class="c_code-complement">
-        <%= @book.ccode_seconddigit_id %>
-      </div>
-      <div class="c_code-complement">
-        <%= @book.ccode_thirddigit_id %>
+      <div class="book-information-left">
+        <div class="book-author">
+          <label>著者：</label>
+          <%= @book.author %>
+        </div>
+        <div class="book-puplisher">
+          <label>出版社：</label>
+          <%= @book.publisher %>
+        </div>
+        <div class="book-publication">
+          <label>発売日：</label>
+          <%= @book.publication_date %>
+        </div>
+        <div class="book-isbn">
+          <label>ISBN：</label>
+          <%= @book.isbn %>
+        </div>
       </div>
     </div>
-    <div class="book-description">
-      <label>内容 </label>
-      <%= @book.description %>
-    </div>
-    <div class="book-keyword">
-      <label>説明 </label>
-      <%= @book.keyword %>
+    <div class="right-content">
+      <div class="book-information-right">
+        <div class="book-genre">
+          <label class="genre-title">ジャンル</label>
+          <div class="book-c_code">
+            <div class="c_code-first-complement">
+              <%= @book.CcodeFirstdigit.name %>
+            </div>
+            <div class="c_code-second-complement">
+              <%= @book.CcodeSeconddigit.name %>
+            </div>
+            <div class="c_code-third-complement">
+              <%= @book.CcodeThirddigit.name %>
+            </div>
+          </div>
+        </div>
+        <div class="book-description">
+          <label class="description-title">内容</label>
+          <%= @book.description %>
+        </div>
+        <div class="book-keyword">
+          <label class="keyword-title">関連キーワード</label>
+          <%= @book.keyword %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

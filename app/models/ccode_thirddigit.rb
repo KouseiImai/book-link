@@ -64,8 +64,8 @@ class CcodeThirddigit < ActiveHash::Base
     { id: 90, name: '文学総記'},
     { id: 91, name: '日本文学総記'},
     { id: 92, name: '日本文学詩歌'},
-    { id: 93, name: '日本文学、小説・物語'},
-    { id: 95, name: '日本文学、評論、随筆、その他'},
+    { id: 93, name: '日本文学・小説・物語'},
+    { id: 95, name: '日本文学・評論・随筆・その他'},
     { id: 97, name: '外国文学小説'},
     { id: 98, name: '外国文学、その他'}
   ]
