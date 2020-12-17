@@ -85,14 +85,29 @@
             if( data[0].summary.cover == "" ){
               $("#thumbnail").html('<label>イメージ画像がありません可能でしたら画像を登録して下さい</label>');
             } else {
-              $("#thumbnail").html('<label>イメージ</label><br><img src=\"' + data[0].summary.cover + '\" style=\"margin: 5px 0 20px 0\" />');
-              $("#book-image-field").css({'visibility':'hidden','display':'none'});
+              const XHR = new XMLHttpRequest();
+              XHR.open("GET", data[0].summary.cover, true);
+              XHR.responseType = "json";
+              XHR.send();
+              XHR.onload = () => {
+                if ( XHR.status === 200 ){
+                  $("#thumbnail").html('<label>イメージ</label><br><img src=\"' + data[0].summary.cover + '\" style=\"margin: 5px 0 20px 0\" />');
+                  $("#book-image-field").css({'visibility':'hidden','display':'none'});
+                  $("#thumbnail").css({'color':'black'});
+                  const book_image = data[0].summary.cover;
+                  book_image.slice(0,-1);
+                  $("#book-image").val(book_image);
+                }else {
+                  $("#thumbnail").html('<label>イメージ画像がありません可能でしたら画像を登録して下さい</label>');
+                  $("#thumbnail").css({'color':'red'});
+                }
+              };
+              $("#thumbnail").html('<label>イメージ画像がありません可能でしたら画像を登録して下さい</label>');
+              $("#thumbnail").css({'color':'red'});
             }
-            console.log(data[0])
             $("#title").val(data[0].summary.title);
             $("#publisher").val(data[0].summary.publisher);
             $("#author").val(data[0].summary.author);
-
             if ( data[0].onix.CollateralDetail.TextContent[0].Text != undefined ){
               $("#description").val(data[0].onix.CollateralDetail.TextContent[0].Text);
             } else if ( data[0].onix.CollateralDetail.TextContent[1].Text != undefined ){
@@ -101,7 +116,6 @@
             const pub_date = data[0].summary.pubdate;
             let pubdate = data[0].summary.pubdate;
             let release_date = pub_date;
-            console.log(pub_date);
             if ( pub_date.length == 10 && pub_date.match(/-/) ){
               pubdate_edit = pub_date.replace('-','');
               pubdate = pubdate_edit.replace('-','');
@@ -121,21 +135,14 @@
             } else {
               pubdate = pub_date;
             }
-            console.log(pub_date);
-            console.log(pubdate);
             if ( pub_date.length >= 6 && pub_date.indexOf('/') == -1 ){
               const year = pubdate.slice(0,4);
               const month = pubdate.slice(4,6);
               const day = pubdate.slice(6,8);
               const date = [year,month,day];
               release_date = date.join('/');
-              console.log(release_date);
             }
-            console.log(release_date);
             $("#pubdate").val(release_date);
-            const book_image = data[0].summary.cover;
-            book_image.slice(0,-1);
-            $("#book-image").val(book_image);
             if ( data[0].onix.DescriptiveDetail.Subject != null ){
               const c_code = Number(data[0].onix.DescriptiveDetail.Subject[0].SubjectCode);
               const c_code_first = parseInt((c_code / 1000), 10);
