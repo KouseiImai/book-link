@@ -40,28 +40,34 @@
     </div>
     <div class="right-content">
       <div class="book-information-right">
-        <div class="book-genre">
-          <label class="genre-title">ジャンル</label>
-          <div class="book-c_code">
-            <div class="c_code-first-complement">
-              <%= @book.CcodeFirstdigit.name %>
-            </div>
-            <div class="c_code-second-complement">
-              <%= @book.CcodeSeconddigit.name %>
-            </div>
-            <div class="c_code-third-complement">
-              <%= @book.CcodeThirddigit.name %>
+        <% if @book.ccode_firstdigit_id != nil %>
+          <div class="book-genre">
+            <label class="genre-title">ジャンル</label>
+            <div class="book-c_code">
+              <div class="c_code-first-complement">
+                <%= @book.CcodeFirstdigit.name %>
+              </div>
+              <div class="c_code-second-complement">
+                <%= @book.CcodeSeconddigit.name %>
+              </div>
+              <div class="c_code-third-complement">
+                <%= @book.CcodeThirddigit.name %>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="book-description">
-          <label class="description-title">内容</label>
-          <%= @book.description %>
-        </div>
-        <div class="book-keyword">
-          <label class="keyword-title">関連キーワード</label>
-          <%= @book.keyword %>
-        </div>
+        <% end %>
+        <% unless @book.description.blank? %>
+          <div class="book-description">
+            <label class="description-title">内容</label>
+            <div class="text"><%= @book.description %></div>
+          </div>
+        <% end%>
+        <% unless @book.keyword.blank? %>
+          <div class="book-keyword">
+            <label class="keyword-title">関連キーワード</label>
+            <div class="text"><%= @book.keyword %></div>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
