@@ -36,6 +36,15 @@
           <label>ISBN：</label>
           <%= @book.isbn %>
         </div>
+        <% if user_signed_in? %>
+          <% if @book.user_id == current_user.id %>
+            <div class="btn">
+              <p class="edit-menu-text">編集メニュー</p><br>
+              <%= link_to '編集', edit_book_path, method: :get, class: "book-edit-btn" %>
+              <%= link_to '削除', book_path, method: :delete, class: "book-destroy-btn" %>
+            </div>
+          <% end %>
+        <% end %>
       </div>
     </div>
     <div class="right-content">
