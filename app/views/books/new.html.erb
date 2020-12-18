@@ -84,6 +84,7 @@
             $("#isbn").val(isbn.replace(/-/g,''));
             if( data[0].summary.cover == "" ){
               $("#thumbnail").html('<label>イメージ画像がありません可能でしたら画像を登録して下さい</label>');
+              $("#thumbnail").css({'color':'red'});
             } else {
               const XHR = new XMLHttpRequest();
               XHR.open("GET", data[0].summary.cover, true);
