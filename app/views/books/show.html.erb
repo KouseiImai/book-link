@@ -1,0 +1,83 @@
+<div class='main'> 
+  <div class='hoge'>
+  </div>
+  <div class="book-data">
+    <div class="left-content">
+      <div class="show-book-title">
+        <%= @book.title %>
+      </div>
+      <div class="book-image">
+        <% if @book.cover != "" %>
+          <div class='item-img-content'>
+            <%= image_tag @book.cover, class: 'book_cover' %>
+          </div> 
+        <% else %>
+          <% if @book.image.attached? %>
+            <%= image_tag @book.image.variant(resize: '200x286') %>
+          <% else %>
+            <%= image_tag "No image.png", size:'200x286' %>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="book-information-left">
+        <div class="book-author">
+          <label>著者：</label>
+          <%= @book.author %>
+        </div>
+        <div class="book-puplisher">
+          <label>出版社：</label>
+          <%= @book.publisher %>
+        </div>
+        <div class="book-publication">
+          <label>発売日：</label>
+          <%= @book.publication_date %>
+        </div>
+        <div class="book-isbn">
+          <label>ISBN：</label>
+          <%= @book.isbn %>
+        </div>
+        <% if user_signed_in? %>
+          <% if @book.user_id == current_user.id %>
+            <div class="btn">
+              <p class="edit-menu-text">編集メニュー</p><br>
+              <%= link_to '編集', edit_book_path, method: :get, class: "book-edit-btn" %>
+              <%= link_to '削除', book_path, method: :delete, class: "book-destroy-btn" %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="right-content">
+      <div class="book-information-right">
+        <% if @book.ccode_firstdigit_id != nil %>
+          <div class="book-genre">
+            <label class="genre-title">ジャンル</label>
+            <div class="book-c_code">
+              <div class="c_code-first-complement">
+                <%= @book.CcodeFirstdigit.name %>
+              </div>
+              <div class="c_code-second-complement">
+                <%= @book.CcodeSeconddigit.name %>
+              </div>
+              <div class="c_code-third-complement">
+                <%= @book.CcodeThirddigit.name %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <% unless @book.description.blank? %>
+          <div class="book-description">
+            <label class="description-title">内容</label>
+            <div class="text"><%= @book.description %></div>
+          </div>
+        <% end%>
+        <% unless @book.keyword.blank? %>
+          <div class="book-keyword">
+            <label class="keyword-title">関連キーワード</label>
+            <div class="text"><%= @book.keyword %></div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

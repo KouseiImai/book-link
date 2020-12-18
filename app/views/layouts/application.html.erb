@@ -15,15 +15,17 @@
   </head>
 
   <body>
-    <header>
-      <%= render "shared/header" %>
-    </header>
-    <div >
-      <%= yield %>
+    <div class="base">
+      <header>
+        <%= render "shared/header" %>
+      </header>
+      <div >
+        <%= yield %>
+      </div>
+      <footer>
+        <%= render "shared/footer" %>
+      </footer>
     </div>
-    <footer>
-      <%= render "shared/footer" %>
-    </footer>
   </body>
   
 </html>
