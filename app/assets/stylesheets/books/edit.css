@@ -1,0 +1,30 @@
+.edit-book-title {
+  color: black;
+  text-shadow: none;
+  font-size: 25px;
+  display: inline-block;
+}
+
+.edit-book-title {
+  position: relative;
+  padding: 0.25em 0;
+}
+
+.edit-book-title:after {
+  content: "";
+  display: block;
+  height: 4px;
+  background: -webkit-linear-gradient(to right, rgb(0,191,255,1), transparent);
+  background: linear-gradient(to right, rgb(0,191,255,1), transparent);
+}
+
+.edit-isbn {
+  color: black;
+  text-shadow: none;
+  margin-bottom: 30px;
+  font-size: 15px;
+}
+
+.book-cover-field {
+  padding-bottom: 20px;
+}

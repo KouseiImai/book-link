@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
+  before_action :set_book, only: [:show, :edit, :update, :destroy]
 
   def index
     @books = Book.all
@@ -20,8 +21,23 @@ class BooksController < ApplicationController
   end
 
   def show
-    @book = Book.find(params[:id])
   end
+
+  def edit
+  end
+
+  def update
+    unless @book.update(book_params)
+      render :edit
+    end
+  end
+
+  def destroy
+    unless @book.destroy
+      render :show
+    end
+  end
+
 
   private
 
@@ -34,4 +50,9 @@ class BooksController < ApplicationController
                                  :ccode_firstdigit_id, :ccode_seconddigit_id, :ccode_thirddigit_id,
                                  :cover, :description, :keyword).merge(user_id: current_user.id)
   end
+
+  def set_book
+    @book = Book.find(params[:id])
+  end
+
 end

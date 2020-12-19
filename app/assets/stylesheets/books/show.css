@@ -71,7 +71,8 @@
 }
 
 .book-genre {
-  margin-bottom: 7px;
+  display: flex;
+  margin-top: 18px;
 }
 
 .genre-title {
@@ -81,8 +82,6 @@
 }
 
 .book-c_code {
-  display: flex;
-  margin-top: 15px;
   margin-left: 5px;
 }
 
