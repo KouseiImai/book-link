@@ -27,17 +27,12 @@ class BooksController < ApplicationController
   end
 
   def update
-    unless @book.update(book_params)
-      render :edit
-    end
+    render :edit unless @book.update(book_params)
   end
 
   def destroy
-    unless @book.destroy
-      render :show
-    end
+    render :show unless @book.destroy
   end
-
 
   private
 
@@ -54,5 +49,4 @@ class BooksController < ApplicationController
   def set_book
     @book = Book.find(params[:id])
   end
-
 end
