@@ -1,6 +1,9 @@
-.edit-book-title {
+.book-info-form {
   color: black;
   text-shadow: none;
+}
+
+.edit-book-title {
   font-size: 25px;
   display: inline-block;
 }
@@ -19,12 +22,14 @@
 }
 
 .edit-isbn {
-  color: black;
-  text-shadow: none;
   margin-bottom: 30px;
   font-size: 15px;
 }
 
 .book-cover-field {
   padding-bottom: 20px;
+}
+
+b {
+  font-size: 20px;
 }

@@ -26,7 +26,9 @@
           <% if @book.image.attached? %>
             <%= image_tag @book.image.variant(resize: '200x286') %>
           <% else %>
-            <%= image_tag "No image.png", size:'200x286' %>
+            <%= image_tag "No image.png", size:'200x286' %><br>
+            <label class="add-image"><b>イメージ</b> (可能でしたら登録して下さい)</label>
+            <%= f.file_field :image %>
           <% end %>
         <% end %>
       </div>
