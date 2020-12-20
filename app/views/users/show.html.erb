@@ -1,0 +1,29 @@
+<div class='main'> 
+  <div class="user-show-contents">
+    <p class="user-show-nickname"><%= @nickname %>さんの投稿一覧</p>
+    <div class="user-show-books-data">
+      <% if @books != blank? %>
+        <% @books.each do |book| %>
+          <div class="user-show-book">
+            <%= link_to book_path(book.id), size:'200x280', class: 'user-show-book-image', method: :get do %> 
+              <% if book.cover != "" %>
+                <div class='item-img-content'>
+                  <%= image_tag book.cover, size:'200x280', class: 'user-show-book-cover' %>
+                </div> 
+              <% else %>
+                <% if book.image.attached? %>
+                  <%= image_tag book.image.variant(resize: '200x280') %>
+                <% else %>
+                  <%= image_tag "No image.png", size:'200x280' %>
+                <% end %>
+              <% end %>
+              <div class='user-show-book-title'>
+                <%= book.title %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
