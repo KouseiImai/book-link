@@ -36,8 +36,8 @@
         </div>
         <% if user_signed_in? %>
           <% if @book.user_id == current_user.id %>
+            <p class="edit_menu_text">編集メニュー</p>
             <div class="btn">
-              <p class="edit_menu_text">編集メニュー</p><br>
               <%= link_to '編集', edit_book_path(@book.id), method: :get, class: "book_edit_btn" %>
               <%= link_to '削除', book_path(@book.id), method: :delete, class: "book_destroy_btn" %>
             </div>
