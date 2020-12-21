@@ -1,39 +1,17 @@
 <div class='main'> 
-  <div class='hoge'>
+  <div class="book_link_explanation">
+    <h1 class="app_title">BOOK LINK</h1>
+    <p class="app_explanation">今求めている本と出会うを実現させるサービスです</p>
   </div>
-  <div class='second-header'>
-    <div class='title-contents'>
-      <div class='title-contents-words'>
-        <h1 class='service-title'>BOOK LINK</h1>
-        <h2 class='service-explain1'>〜本との出会いを読者との繋がりを〜</h2>
-        <p class='service-explain2'>BookLinkは自分視点で本の情報を発信出来るアプリです</p>
-      </div>
-      <div class='select-contents'> 
-        <ul class='contents-lists'>
-          <li class='list'> 
-            <%= link_to image_tag("contents01.png", size:'130x150') , "/" %>
-          </li>
-          <li class='list'>
-            <%= link_to image_tag("contents02.png", size:'130x150'), "/" %>
-          </li>
-          <li class='list'>
-            <%= link_to image_tag("contents03.png", size:'130x150'), "/" %>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class='books-contents'>
-    <h2 class='title'>登録されている書籍</h2>
+  <div class='first_contents'>
     <div id='bookslider'>
       <ul class="bxslider">
         <% if @books != blank? %>
           <% @books.each do |book| %>
             <%= link_to book_path(book.id), method: :get do %> 
-              <li class='book-list'>
+              <li class='book_list'>
                 <% if book.cover != "" %>
-                  <div class='item-img-content'>
+                  <div class='book_img_content'>
                     <%= image_tag book.cover, class: 'book_cover' %>
                   </div> 
                 <% else %>
@@ -43,16 +21,47 @@
                     <%= image_tag "No image.png", size:'200x286' %>
                   <% end %>
                 <% end %>
-                <div class='book-info'>
-                  <h3 class='book-title'>
+                <div class='book_info'>
+                  <h3 class='book_title'>
                     <%= book.title %>
-                  </h3> 
+                  </h3>
                 </div>
               </li>
             <% end %>
           <% end %>
-        <% end %> 
-      </ul> 
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+  <div class="second_contents">
+    <div class="can_do_title">
+      <p class="can_do_title_text">BOOK LINKで出来ること</p>
+    </div>
+    <div class="can_do">
+      <div class="can_do_contents">
+        <p class="contents_index">本情報の登録</p>
+        <ul class="details_lists">
+          <li class="list_text">本情報にどんな時に読んだか・どんな気分になったっかを登録出来ます</li>
+          <li class="list_text">ISBN入力により本情報を自動で入力出来ます</li>
+          <li class="list_text">手入力にての本情報の入力や編集も可能です</li>
+        </ul>
+      </div>
+      <div class="can_do_contents">
+        <p class="contents_index">本を探す</p>
+        <ul class="details_lists">
+          <li class="list_text">今の気分にあった本を探せます</li>
+          <li class="list_text">キーワード入力より本を探せます</li>
+          <li class="list_text">ジャンルより本を探せます</li>
+        </ul>
+      </div>
+      <div class="can_do_contents">
+        <p class="contents_index">他の読者ともつながれます</p>
+        <ul class="details_lists">
+          <li class="list_text">登録済の本に自分はどんな時に読んだか・どんな気分になかったかを投稿出来ます</li>
+          <li class="list_text">登録済の本に自分の感想を投稿出来ます</li>
+        </ul>
+      </div>
     </div>
   </div>
 
