@@ -1,26 +1,37 @@
+.book_info_form {
+  background-color: white;
+  padding: 0 50px 50px 50px;
+  margin-top: 20px;
+  box-shadow: 0 0 10px rgba(41, 41, 41, 0.2);
+  background-color: white;
+  box-sizing: border-box;
+  font-family: "游ゴシック", "YuGothic";
+}
+
 .h1 {
   color: #333333;
   text-shadow: none;
   font-weight: bold;
   font-size: 20px;
   text-align: center;
-  margin-bottom: 30px;
-}
-
-.book-info-form {
-  background-color: white;
   padding: 50px;
 }
 
-.isbn-field{
+.error_alert {
+  color: #cd5c5c;
+  text-shadow: none;
+  margin-bottom: 20px;
+}
+
+.isbn_field{
   display: flex;
 }
 
-.isbn-form,.field_with_errors {
+.isbn_form,.field_with_errors {
   width: 100%;
 }
 
-.get-book-info-button {
+.get_book_info_button {
   width: 10vw;
   margin: 5px 0 15px 5px;
   padding: 10px;
@@ -37,7 +48,13 @@
   border-radius: 3px;
 }
 
-.description-form {
+.get_book_info_button:hover {
+  background: #57C3E9;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+}
+
+.description_form {
   height: 200px;
 }
 
@@ -45,27 +62,27 @@
   margin-top: 12px;
 }
 
-.form-field {
+.form_field {
   color: #333333;
   text-shadow: none;
   font-weight: bold;
   font-size: 20px;
 }
 
-.complement,.c_code-complement {
+.complement,.c_code_complement {
   color: black;
   text-shadow: none;
   font-size: 15px;
 }
 
-.example-numbers {
+.example_numbers {
   color: black;
   text-shadow: none;
   font-size: small;
   margin-bottom: 15px;
 }
 
-.category-firstselect,.category-secondselect {
+.category_firstselect,.category_secondselect {
   height: 30px;
   width: 180px;
   margin-top: 15px;
@@ -74,7 +91,7 @@
   font-family: "游ゴシック", "YuGothic";
 }
 
-.category-thirdselect {
+.category_thirdselect {
   height: 30px;
   width: 180px;
   margin: 15px 0 20px 0;
@@ -87,8 +104,25 @@
   border: solid,1px #000000;
 }
 
-.error-alert {
-  color: #cd5c5c;
-  text-shadow: none;
-  margin-bottom: 20px;
+.btn {
+  display: flex;
+  justify-content: center;
+}
+
+.send_btn {
+  margin: 20px 0 50px 0;
+  width: 200px;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  color: #3cb371;
+  border: double 4px #3cb371;
+  background: white;
+  border-radius: 3px;
+  transition: .4s;
+}
+
+.send_btn:hover {
+  background: #3cb371;
+  color: #ffffff;
+  border: double 4px #ffffff;
 }
