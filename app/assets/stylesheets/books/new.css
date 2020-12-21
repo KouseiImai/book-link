@@ -104,7 +104,7 @@
   border: solid,1px #000000;
 }
 
-.btn {
+.form_btn {
   display: flex;
   justify-content: center;
 }

@@ -1,19 +1,21 @@
-.update-contents,.destroy-contents {
+.update_contents,.destroy_contents {
   margin-top: 140px;
   color: black;
-  text-shadow: none;
   background-color: white;
+  box-shadow: 0 0 10px rgba(41, 41, 41, 0.2);
+  box-sizing: border-box;
+  font-family: "游ゴシック", "YuGothic";
 }
 
 .success {
   padding: 50px 200px;
 }
 
-.success-text {
+.success_text {
   margin-bottom: 15px;
 }
 
-.home-btn {
+.home_btn {
   padding: 8px 20px;
   font-size: 14px;
   border: 2px solid #57C3E9;
@@ -24,7 +26,8 @@
   display: inline-block;
 }
 
-.home-btn:hover {
-  border-color: #9bdbf2;
-  color: #9bdbf2;
+.home_btn:hover {
+  border: 2px solid white;
+  color: white;
+  background-color: #57C3E9;
 }

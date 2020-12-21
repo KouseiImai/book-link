@@ -1,19 +1,14 @@
-.book-info-form {
-  color: black;
-  text-shadow: none;
-}
-
-.edit-book-title {
+.edit_book_title {
   font-size: 25px;
   display: inline-block;
 }
 
-.edit-book-title {
+.edit_book_title {
   position: relative;
   padding: 0.25em 0;
 }
 
-.edit-book-title:after {
+.edit_book_title:after {
   content: "";
   display: block;
   height: 4px;
@@ -21,12 +16,12 @@
   background: linear-gradient(to right, rgb(0,191,255,1), transparent);
 }
 
-.edit-isbn {
+.edit_isbn {
   margin-bottom: 30px;
   font-size: 15px;
 }
 
-.book-cover-field {
+.book_cover_field {
   padding-bottom: 20px;
 }
 
