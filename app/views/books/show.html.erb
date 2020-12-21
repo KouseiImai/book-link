@@ -1,14 +1,12 @@
 <div class='main'> 
-  <div class='hoge'>
-  </div>
-  <div class="book-data">
-    <div class="left-content">
-      <div class="show-book-title">
+  <div class="book_data">
+    <div class="left_content">
+      <div class="show_book_title">
         <%= @book.title %>
       </div>
-      <div class="book-image">
+      <div class="book_image">
         <% if @book.cover != "" %>
-          <div class='item-img-content'>
+          <div class='item_img_content'>
             <%= image_tag @book.cover, class: 'book_cover' %>
           </div> 
         <% else %>
@@ -19,71 +17,71 @@
           <% end %>
         <% end %>
       </div>
-      <div class="book-information-left">
-        <div class="book-author">
+      <div class="book_information_left">
+        <div class="book_author">
           <label>著者：</label>
           <%= @book.author %>
         </div>
-        <div class="book-puplisher">
+        <div class="book_publisher">
           <label>出版社：</label>
           <%= @book.publisher %>
         </div>
-        <div class="book-publication">
+        <div class="book_publication">
           <label>発売日：</label>
           <%= @book.publication_date %>
         </div>
-        <div class="book-isbn">
+        <div class="book_isbn">
           <label>ISBN：</label>
           <%= @book.isbn %>
         </div>
         <% if user_signed_in? %>
           <% if @book.user_id == current_user.id %>
             <div class="btn">
-              <p class="edit-menu-text">編集メニュー</p><br>
-              <%= link_to '編集', edit_book_path(@book.id), method: :get, class: "book-edit-btn" %>
-              <%= link_to '削除', book_path(@book.id), method: :delete, class: "book-destroy-btn" %>
+              <p class="edit_menu_text">編集メニュー</p><br>
+              <%= link_to '編集', edit_book_path(@book.id), method: :get, class: "book_edit_btn" %>
+              <%= link_to '削除', book_path(@book.id), method: :delete, class: "book_destroy_btn" %>
             </div>
           <% end %>
         <% end %>
       </div>
     </div>
-    <div class="right-content">
-      <div class="book-information-right">
+    <div class="right_content">
+      <div class="book_information_right">
         <% if @book.ccode_firstdigit_id != nil || @book.ccode_seconddigit_id != nil || @book.ccode_thirddigit_id != nil%>
-          <label class="genre-title">ジャンル</label>
+          <label class="genre_title">ジャンル</label>
         <% end %>
-        <div class="book-genre">
+        <div class="book_genre">
           <% if @book.ccode_firstdigit_id != nil %>
-            <div class="book-c_code">
-              <div class="c_code-first-complement">
+            <div class="book_c_code">
+              <div class="c_code_first_complement">
                 <%= @book.CcodeFirstdigit.name %>
               </div>
             </div>
           <% end %>
           <% if @book.ccode_seconddigit_id != nil %>
-            <div class="book-c_code">
-              <div class="c_code-second-complement">
+            <div class="book_c_code">
+              <div class="c_code_second_complement">
                 <%= @book.CcodeSeconddigit.name %>
               </div>
             </div>
           <% end %>
           <% if @book.ccode_thirddigit_id != nil %>
-            <div class="book-c_code">
-              <div class="c_code-third-complement">
+            <div class="book_c_code">
+              <div class="c_code_third_complement">
                 <%= @book.CcodeThirddigit.name %>
               </div>
             </div>
           <% end %>
         </div>
         <% unless @book.description.blank? %>
-          <div class="book-description">
-            <label class="description-title">内容</label>
+          <div class="book_description">
+            <label class="description_title">内容</label>
             <div class="text"><%= @book.description %></div>
           </div>
         <% end%>
         <% unless @book.keyword.blank? %>
-          <div class="book-keyword">
-            <label class="keyword-title">関連キーワード</label>
+          <div class="book_keyword">
+            <label class="keyword_title">関連キーワード</label>
             <div class="text"><%= @book.keyword %></div>
           </div>
         <% end %>
