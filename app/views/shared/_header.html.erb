@@ -1,6 +1,9 @@
 <header class='header'>
   <div class='nav'>
-    <%= link_to image_tag("main_logo.png",class:"logo_icon"),"/" %>
+    <div class="logo">
+      <%= link_to image_tag("main_logo.png",class:"logo_icon"),"/" %>
+      <%= link_to 'BOOK LINK', "/", class: "logo_text" %>
+    </div>
     <ul class='lists'> 
       <% if user_signed_in? %> 
         <li><%= link_to '本を登録する', new_book_path, class: "book_new" %></li>
