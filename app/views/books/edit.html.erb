@@ -1,78 +1,76 @@
 <div class='main'> 
-  <div class='hoge'>
-  </div>
-  <div class="book-info-form">
+  <div class="book_info_form">
     <h1 class="h1">本情報の編集</h1>
-    <div class="edit-book-title">
+    <div class="edit_book_title">
       <%= @book.title %>
     </div>
-    <div class="edit-isbn">
+    <div class="edit_isbn">
       （ ISBN：<%= @book.isbn %> ）
     </div>
     <%= form_with model: @book, url: book_path, local: true do |f| %>
       <%= render 'shared/error_messages', model: f.object %>
-      <div class="form-field">
+      <div class="form_field">
         <div id="thumbnail"></div>
-        <div class="book-image-field">
+        <div class="book_image_field">
           <%= f.hidden_field :cover, id:"book-image" %>
         </div>
       </div>
-      <div class="book-cover-field">
+      <div class="book_cover_field">
         <% if @book.cover != "" %>
-          <div class='item-img-content'>
+          <div class='item_img_content'>
             <%= image_tag @book.cover, class: 'book_cover' %>
           </div> 
         <% else %>
           <% if @book.image.attached? %>
             <%= image_tag @book.image.variant(resize: '200x286') %><br>
-            <label class="add-image"><b>イメージ</b> (画像を変更する事も可能です)</label>
+            <label class="add_image"><b>イメージ</b> (画像を変更する事も可能です)</label>
             <%= f.file_field :image %>
           <% else %>
             <%= image_tag "No image.png", size:'200x286' %><br>
-            <label class="add-image"><b>イメージ</b> (可能でしたら登録して下さい)</label>
+            <label class="add_image"><b>イメージ</b> (可能でしたら登録して下さい)</label>
             <%= f.file_field :image %>
           <% end %>
         <% end %>
       </div>
-      <div class="form-field">
+      <div class="form_field">
         <label>タイトル (必須)</label>
-        <%= f.text_field :title, id:"title", class:"title-form book-info" %>
+        <%= f.text_field :title, id:"title", class:"title_form book_form" %>
       </div>
-      <div class="form-field">
+      <div class="form_field">
         <label>出版社 (必須)</label>
-        <%= f.text_field :publisher, id:"publisher", class:"publisher-form book-info" %>
+        <%= f.text_field :publisher, id:"publisher", class:"publisher_form book_form" %>
       </div>
-      <div class="form-field">
+      <div class="form_field">
         <label>著者 (必須)</label>
-        <%= f.text_field :author, id:"author", class:"author-form book-info" %>
+        <%= f.text_field :author, id:"author", class:"author_form book_form" %>
       </div>
-      <div class="form-field">
+      <div class="form_field">
         <label hidden>発売日 </label>
-        <%= f.hidden_field :publication_date, id:"pubdate", class:"pubdate-form book-info"%>
+        <%= f.hidden_field :publication_date, id:"pubdate", class:"pubdate_form book_form"%>
       </div>
-      <div class="form-field">
+      <div class="form_field">
         <label>ジャンル </label><br>
         <p class="complement">※自動入力されなかった際は選択して下さい。(情報が無くとも登録は可能です)</p>
-        <div class="c_code-complement">販売対象：
-          <%= f.collection_select(:ccode_firstdigit_id, CcodeFirstdigit.all, :id, :name, {prompt: '---'}, {class:"category-firstselect book-info", id:"c_code_first"}) %>
+        <div class="c_code_complement">販売対象：
+          <%= f.collection_select(:ccode_firstdigit_id, CcodeFirstdigit.all, :id, :name, {prompt: '---'}, {class:"category_firstselect book_form", id:"c-code-first"}) %>
         </div>
-        <div class="c_code-complement">書籍形態：
-          <%= f.collection_select(:ccode_seconddigit_id, CcodeSeconddigit.all, :id, :name, {prompt: '---'}, {class:"category-secondselect book-info", id:"c_code_second"}) %>
+        <div class="c_code_complement">書籍形態：
+          <%= f.collection_select(:ccode_seconddigit_id, CcodeSeconddigit.all, :id, :name, {prompt: '---'}, {class:"category_secondselect book_form", id:"c-code-second"}) %>
         </div>
-        <div class="c_code-complement">　　内容：
-          <%= f.collection_select(:ccode_thirddigit_id, CcodeThirddigit.all, :id, :name, {prompt: '---'}, {class:"category-thirdselect book-info", id:"c_code_third"}) %>
+        <div class="c_code_complement">　　内容：
+          <%= f.collection_select(:ccode_thirddigit_id, CcodeThirddigit.all, :id, :name, {prompt: '---'}, {class:"category_thirdselect book_form", id:"c-code-third"}) %>
         </div>
       </div>
-      <div class="form-field">
+      <div class="form_field">
         <label>内容 </label>
-        <%= f.text_area :description, id:"description", class:"description-form book-info" %>
+        <%= f.text_area :description, id:"description", class:"description_form book_form" %>
       </div>
-      <div class="form-field">
+      <div class="form_field">
         <label hidden>説明 </label>
-        <%= f.hidden_field :keyword, id:"keyword", class:"keyword-form book-info" %>
+        <%= f.hidden_field :keyword, id:"keyword", class:"keyword_form book_form" %>
       </div>
-      <div class="btn">
-        <%= f.submit "登録する", class:"send-btn" %>
+      <div class="form_btn">
+        <%= f.submit "更新する", class:"send_btn" %>
       </div>
     <% end %>
   </div>

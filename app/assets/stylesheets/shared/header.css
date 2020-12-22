@@ -2,19 +2,33 @@
   box-sizing: border-box;
 }
 
-.top-page-header {
+.header {
   width: 100vw;
+  height: 5vw;
+  padding: 40px 0;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   position: fixed;
-  background: rgba(255,255,255,0.6);
+  background: rgba(255,255,255,0.9);
   z-index: 9999;
 }
 
-.main_logo-icon {
-  margin-left: 2vw;
-  height: 5vw;
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo_icon {
+  margin-left: 3vw;
+  height: 4vw;
+}
+
+.logo_text {
+  font-family: serif;
+  font-size: 40px;
+  font-weight: bold;
+  color: #a3e9f5;
 }
 
 .nav {
@@ -32,31 +46,32 @@
   align-items: center;
 }
 
-.user-nickname,.login {
-  margin-left: 3vw;
-  color: #333333;
-  font-weight: bold;
-  text-align: center;
-}
-
-.logout,.sign-up {
-  margin: 0 4vw 0 3vw;
-  color: #333333;
-  font-weight: bold;
-  text-align: center;
-
-}
-
-.book-new {
+.book_new {
   margin-left: 5vw;
   color: #333333;
   font-weight: bold;
   text-align: center;
 }
 
-.book-search {
+.books_search {
   margin: 0 3vw ;
   color: #333333;
   font-weight: bold;
   text-align: center;
+}
+
+
+.user_nickname,.login {
+  margin-left: 3vw;
+  color: #333333;
+  font-weight: bold;
+  text-align: center;
+}
+
+.logout,.sign_up {
+  margin: 0 4vw 0 3vw;
+  color: #333333;
+  font-weight: bold;
+  text-align: center;
+
 }

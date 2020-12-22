@@ -1,36 +1,24 @@
-<div class="user-main">
-  <div class='hoge'>
-  </div>
-  <div class="contents row">
-    <div class="container">
-      <h2>ログイン</h2>
-      <%= form_with model: @user, url: user_session_path, id: 'new_user', class: 'new_user', local: true do |f| %>
-        <% flash.each do |message_type, message| %>
-          <div id="error_explanation">
-            <%= message %>
-          </div>
-        <% end %>
-        <div class="field">
-          <label>メールアドレス</label>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-        </div>
-
-        <div class="field">
-          <label>パスワード</label>
-          <%= f.password_field :password, autocomplete: "current-password" %>
-        </div>
-
-        <%# <% if devise_mapping.rememberable? %>
-          <%# <div class="field"> %>
-            <%# <%= f.check_box :remember_me %>
-            <%# <%= f.label :remember_me %>
-          <%# </div> %>
-        <%# <% end %>
-
-        <div class="actions">
-          <%= f.submit "ログイン" %>
+<div class="contents row">
+  <div class="container">
+    <h2 class="user_index">ログイン</h2>
+    <%= form_with model: @user, url: user_session_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+      <% flash.each do |message_type, message| %>
+        <div id="error_explanation">
+          <%= message %>
         </div>
       <% end %>
-    </div>
+      <div class="field">
+        <label>メールアドレス</label>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+      <div class="field">
+        <label>パスワード</label>
+        <%= f.password_field :password, autocomplete: "current-password" %>
+      </div>
+      <div class="action">
+        <%= f.submit "ログイン", class: "action_btn" %>
+      </div>
+    <% end %>
   </div>
 </div>
+
