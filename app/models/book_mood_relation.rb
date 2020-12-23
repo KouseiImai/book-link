@@ -1,0 +1,2 @@
+class BookMoodRelation < ApplicationRecord
+end
