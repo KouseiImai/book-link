@@ -1,7 +1,7 @@
 <div class='main'> 
   <div class="book_info_form">
     <h1 class="h1">新たな本の登録</h1>
-    <%= form_with model: @book, url: books_path, local: true do |f| %>
+    <%= form_with model: @book_data, url: books_path, local: true do |f| %>
       <%= render 'shared/error_messages', model: f.object %>
       <div class="form_field">
         <label>ISBN</label><nobr class="complement">（ ISBNの入力で本の情報を検索出来ます。 ）</nobr>
@@ -10,7 +10,7 @@
           <button id="getBookContents" class="get_book_info_button">検索</button>
         </div>
         <p class="complement">※ISBNは本の裏表紙ISBNコードまたはジャンコードに記載されている「978」から始まる13桁の数字です。</p>
-        <p class="example_numbers">(例：9784839962227)</p>
+        <p class="example">(例：9784839962227)</p>
       </div>
       <div class="form_field">
         <div id="thumbnail"></div>
@@ -38,26 +38,25 @@
         <label hidden>発売日 </label>
         <%= f.hidden_field :publication_date, id:"pubdate", class:"pubdate_form book_form"%>
       </div>
-      <div class="form_field">
-        <label>ジャンル </label><br>
-        <p class="complement">※自動入力されなかった際は選択して下さい。(情報が無くとも登録は可能です)</p>
-        <div class="c_code_complement">販売対象：
-          <%= f.collection_select(:ccode_firstdigit_id, CcodeFirstdigit.all, :id, :name, {prompt: '---'}, {class:"category_firstselect book_form", id:"c-code-first"}) %>
-        </div>
-        <div class="c_code_complement">書籍形態：
-          <%= f.collection_select(:ccode_seconddigit_id, CcodeSeconddigit.all, :id, :name, {prompt: '---'}, {class:"category_secondselect book_form", id:"c-code-second"}) %>
-        </div>
-        <div class="c_code_complement">　　内容：
-          <%= f.collection_select(:ccode_thirddigit_id, CcodeThirddigit.all, :id, :name, {prompt: '---'}, {class:"category_thirdselect book_form", id:"c-code-third"}) %>
-        </div>
+      <div class="category_form">
+        <%# カテゴリー %>
+        <%= f.collection_select(:ccode_firstdigit_id, CcodeFirstdigit.all, :id, :name, {prompt: '---'}, {class:"category_firstselect book_form", id:"c-code-first"}) %>
+        <%= f.collection_select(:ccode_seconddigit_id, CcodeSeconddigit.all, :id, :name, {prompt: '---'}, {class:"category_secondselect book_form", id:"c-code-second"}) %>
+        <%= f.collection_select(:ccode_thirddigit_id, CcodeThirddigit.all, :id, :name, {prompt: '---'}, {class:"category_thirdselect book_form", id:"c-code-third"}) %>
       </div>
-      <div class="form_field">
-        <label>内容 </label>
-        <%= f.text_area :description, id:"description", class:"description_form book_form" %>
+      <div class="description_form">
+        <%# 内容 %>
+        <%= f.text_area :description, id:"description" %>
       </div>
       <div class="form_field">
         <label hidden>説明 </label>
         <%= f.hidden_field :keyword, id:"keyword", class:"keyword_form book_form" %>
+      </div>
+      <div class="form_field">
+        <label>感情 (必須)</label>
+        <p class="complement">※どんな時に読んだかや、読み終えどんな気持ちになったかを一緒に登録してください</p>
+        <p class="example">例) 明るくなりたい時・何かに挑戦したい時・頑張ろうと思えた など・・・</p>
+        <%= f.text_field :mood_text, class:"mood_form book_form" %>
       </div>
       <div class="form_btn">
         <%= f.submit "登録する", class:"send_btn" %>

@@ -54,8 +54,9 @@
   border: 2px solid #ffffff;
 }
 
-.description_form {
-  height: 200px;
+.category_form, .description_form {
+  visibility: hidden;
+  display: none;
 }
 
 .field {
@@ -69,13 +70,13 @@
   font-size: 20px;
 }
 
-.complement,.c_code_complement {
+.complement {
   color: black;
   text-shadow: none;
   font-size: 15px;
 }
 
-.example_numbers {
+.example {
   color: black;
   text-shadow: none;
   font-size: small;

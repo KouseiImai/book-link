@@ -7,13 +7,14 @@ class BooksController < ApplicationController
   end
 
   def new
-    @book = Book.new
+    @book_data = BookData.new
   end
 
   def create
-    @book = Book.new(book_params)
-    if @book.valid?
-      @book.save
+    @book_data = BookData.new(book_params)
+    if @book_data.save
+      # @book.valid?
+      # @book.save
       redirect_to root_path
     else
       render :new
@@ -41,9 +42,9 @@ class BooksController < ApplicationController
   end
 
   def book_params
-    params.require(:book).permit(:title, :image, :publisher, :author, :publication_date, :isbn,
+    params.require(:book_data).permit(:title, :image, :publisher, :author, :publication_date, :isbn,
                                  :ccode_firstdigit_id, :ccode_seconddigit_id, :ccode_thirddigit_id,
-                                 :cover, :description, :keyword).merge(user_id: current_user.id)
+                                 :cover, :description, :keyword, :mood_text).merge(user_id: current_user.id)
   end
 
   def set_book
