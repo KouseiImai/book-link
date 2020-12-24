@@ -8,13 +8,13 @@ class BooksController < ApplicationController
 
   def new
     @book_data = BookData.new
+    @book_keyword = Keyword.new
   end
 
   def create
     @book_data = BookData.new(book_params)
-    if @book_data.save
-      # @book.valid?
-      # @book.save
+    if @book_data.valid?
+      @book_data.save
       redirect_to root_path
     else
       render :new

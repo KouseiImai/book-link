@@ -17,7 +17,15 @@ class BookData
     c_code_first = CCodeFirst.create!(ccode_firstdigit_id: ccode_firstdigit_id, book_id: book.id)
     c_code_second = CCodeSecond.create!(ccode_seconddigit_id: ccode_seconddigit_id, book_id: book.id)
     c_code_third = CCodeThird.create!(ccode_thirddigit_id: ccode_thirddigit_id, book_id: book.id)
-    Keyword.create!(keyword: keyword, book_id: book.id)
+    keyword_array = keyword.split(';')
+    keyword_array.each do |word|
+      book_keyword = Keyword.new
+      book_keyword.keyword = word
+      book_keyword.book_id = book.id
+      book_keyword.save
+    end
+
+
     mood = Mood.create!(mood_text: mood_text, book_id: book.id, user_id: user_id)
 
     BookCCodeFirstRelation.create!(book_id: book.id, c_code_first_id: c_code_first.id)
