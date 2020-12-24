@@ -7,12 +7,8 @@ class CreateBooks < ActiveRecord::Migration[6.0]
       t.string  :author,           null: false
       t.string  :publication_date
       t.string  :isbn,             null: false
-      t.integer :ccode_firstdigit_id
-      t.integer :ccode_seconddigit_id
-      t.integer :ccode_thirddigit_id
       t.string  :cover
       t.text    :description
-      t.string  :keyword
       t.timestamps
     end
   end
