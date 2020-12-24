@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_24_053516) do
+ActiveRecord::Schema.define(version: 2020_12_24_055944) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -118,6 +118,15 @@ ActiveRecord::Schema.define(version: 2020_12_24_053516) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "user_mood_relations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "mood_id"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["mood_id"], name: "index_user_mood_relations_on_mood_id"
+    t.index ["user_id"], name: "index_user_mood_relations_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
     t.string "email", default: "", null: false
@@ -142,4 +151,6 @@ ActiveRecord::Schema.define(version: 2020_12_24_053516) do
   add_foreign_key "book_c_code_third_relations", "c_code_thirds"
   add_foreign_key "book_mood_relations", "books"
   add_foreign_key "book_mood_relations", "moods"
+  add_foreign_key "user_mood_relations", "moods"
+  add_foreign_key "user_mood_relations", "users"
 end

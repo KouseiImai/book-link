@@ -7,11 +7,4 @@ class Book < ApplicationRecord
   belongs_to :mood
   has_many   :keywords
 
-  # バリデーション
-  with_options presence: true do
-    validates :title
-    validates :publisher
-    validates :author
-    validates :isbn, length: { is: 13 }, format: { with: /\A978/ }, uniqueness: true
-  end
 end
