@@ -1,0 +1,2 @@
+class BookCCodeThirdRelation < ApplicationRecord
+end

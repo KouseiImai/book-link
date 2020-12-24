@@ -1,0 +1,2 @@
+class BookCCodeSecondRelation < ApplicationRecord
+end

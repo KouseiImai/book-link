@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :book_genre_relation do
+  factory :c_code_third do
     
   end
 end

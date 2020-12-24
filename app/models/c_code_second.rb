@@ -1,0 +1,2 @@
+class CCodeSecond < ApplicationRecord
+end

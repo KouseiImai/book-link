@@ -1,0 +1,2 @@
+class CCodeThird < ApplicationRecord
+end

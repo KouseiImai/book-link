@@ -1,0 +1,2 @@
+class CCodeFirst < ApplicationRecord
+end

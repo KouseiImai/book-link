@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_23_033434) do
+ActiveRecord::Schema.define(version: 2020_12_24_053516) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -33,13 +33,31 @@ ActiveRecord::Schema.define(version: 2020_12_23_033434) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "book_genre_relations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "book_c_code_first_relations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "book_id"
-    t.bigint "genre_id"
+    t.bigint "c_code_first_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["book_id"], name: "index_book_genre_relations_on_book_id"
-    t.index ["genre_id"], name: "index_book_genre_relations_on_genre_id"
+    t.index ["book_id"], name: "index_book_c_code_first_relations_on_book_id"
+    t.index ["c_code_first_id"], name: "index_book_c_code_first_relations_on_c_code_first_id"
+  end
+
+  create_table "book_c_code_second_relations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "book_id"
+    t.bigint "c_code_second_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_id"], name: "index_book_c_code_second_relations_on_book_id"
+    t.index ["c_code_second_id"], name: "index_book_c_code_second_relations_on_c_code_second_id"
+  end
+
+  create_table "book_c_code_third_relations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "book_id"
+    t.bigint "c_code_third_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_id"], name: "index_book_c_code_third_relations_on_book_id"
+    t.index ["c_code_third_id"], name: "index_book_c_code_third_relations_on_c_code_third_id"
   end
 
   create_table "book_mood_relations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -64,10 +82,22 @@ ActiveRecord::Schema.define(version: 2020_12_23_033434) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "genres", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "bookid"
+  create_table "c_code_firsts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "book_id"
     t.integer "ccode_firstdigit_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "c_code_seconds", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "book_id"
     t.integer "ccode_seconddigit_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "c_code_thirds", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "book_id"
     t.integer "ccode_thirddigit_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -104,8 +134,12 @@ ActiveRecord::Schema.define(version: 2020_12_23_033434) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "book_genre_relations", "books"
-  add_foreign_key "book_genre_relations", "genres"
+  add_foreign_key "book_c_code_first_relations", "books"
+  add_foreign_key "book_c_code_first_relations", "c_code_firsts"
+  add_foreign_key "book_c_code_second_relations", "books"
+  add_foreign_key "book_c_code_second_relations", "c_code_seconds"
+  add_foreign_key "book_c_code_third_relations", "books"
+  add_foreign_key "book_c_code_third_relations", "c_code_thirds"
   add_foreign_key "book_mood_relations", "books"
   add_foreign_key "book_mood_relations", "moods"
 end
