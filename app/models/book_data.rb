@@ -24,7 +24,7 @@ class BookData
       book_keyword.save
     end
 
-    mood = Mood.create(mood_text: mood_text, book_id: book.id, user_id: user_id)
+    mood = Mood.create(mood_text: mood_text)
     BookMoodRelation.create(book_id: book.id, mood_id: mood.id)
   end
 
