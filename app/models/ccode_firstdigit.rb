@@ -13,5 +13,5 @@ class CcodeFirstdigit < ActiveHash::Base
   ]
 
   include ActiveHash::Associations
-  has_many :c_code_firsts
+  has_many :books
 end

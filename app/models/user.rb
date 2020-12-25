@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :books
+  has_many :moods
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :gender, :age

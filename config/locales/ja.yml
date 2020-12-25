@@ -6,9 +6,12 @@ ja:
         gender_id: 性別
         age_id: 年齢
 
-      book:
+  activemodel:
+    attributes:
+      book_data:
         user: ユーザー
         title: タイトル
         publisher: 出版社
         author: 著者
         isbn: ISBN
+        mood_text: 感情の項目

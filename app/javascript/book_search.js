@@ -1,4 +1,4 @@
-if ( location.pathname == "/books/new" ){
+if ( location.pathname == "/books/new" || location.pathname == "/books"){
   $(function() {
     $('#getBookContents').click( function( e ) {
       e.preventDefault();

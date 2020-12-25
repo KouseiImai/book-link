@@ -2,7 +2,7 @@
   <div class="book_info_form">
     <h1 class="h1">新たな本の登録</h1>
     <%= form_with model: @book_data, url: books_path, local: true do |f| %>
-      <%= render 'shared/error_messages', model: f.object %>
+      <%= render 'shared/error_messages', model: @book_data %>
       <div class="form_field">
         <label>ISBN</label><nobr class="complement">（ ISBNの入力で本の情報を検索出来ます。 ）</nobr>
         <div class="isbn_field">

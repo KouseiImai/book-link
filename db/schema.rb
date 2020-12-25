@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_24_055944) do
+ActiveRecord::Schema.define(version: 2020_12_23_033434) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -33,33 +33,6 @@ ActiveRecord::Schema.define(version: 2020_12_24_055944) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "book_c_code_first_relations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "book_id"
-    t.bigint "c_code_first_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["book_id"], name: "index_book_c_code_first_relations_on_book_id"
-    t.index ["c_code_first_id"], name: "index_book_c_code_first_relations_on_c_code_first_id"
-  end
-
-  create_table "book_c_code_second_relations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "book_id"
-    t.bigint "c_code_second_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["book_id"], name: "index_book_c_code_second_relations_on_book_id"
-    t.index ["c_code_second_id"], name: "index_book_c_code_second_relations_on_c_code_second_id"
-  end
-
-  create_table "book_c_code_third_relations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "book_id"
-    t.bigint "c_code_third_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["book_id"], name: "index_book_c_code_third_relations_on_book_id"
-    t.index ["c_code_third_id"], name: "index_book_c_code_third_relations_on_c_code_third_id"
-  end
-
   create_table "book_mood_relations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "book_id"
     t.bigint "mood_id"
@@ -76,29 +49,11 @@ ActiveRecord::Schema.define(version: 2020_12_24_055944) do
     t.string "author", null: false
     t.string "publication_date"
     t.string "isbn", null: false
+    t.integer "ccode_firstdigit_id"
+    t.integer "ccode_seconddigit_id"
+    t.integer "ccode_thirddigit_id"
     t.string "cover"
     t.text "description"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "c_code_firsts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "book_id"
-    t.integer "ccode_firstdigit_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "c_code_seconds", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "book_id"
-    t.integer "ccode_seconddigit_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "c_code_thirds", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "book_id"
-    t.integer "ccode_thirddigit_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -118,15 +73,6 @@ ActiveRecord::Schema.define(version: 2020_12_24_055944) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "user_mood_relations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "mood_id"
-    t.bigint "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["mood_id"], name: "index_user_mood_relations_on_mood_id"
-    t.index ["user_id"], name: "index_user_mood_relations_on_user_id"
-  end
-
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
     t.string "email", default: "", null: false
@@ -143,14 +89,6 @@ ActiveRecord::Schema.define(version: 2020_12_24_055944) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "book_c_code_first_relations", "books"
-  add_foreign_key "book_c_code_first_relations", "c_code_firsts"
-  add_foreign_key "book_c_code_second_relations", "books"
-  add_foreign_key "book_c_code_second_relations", "c_code_seconds"
-  add_foreign_key "book_c_code_third_relations", "books"
-  add_foreign_key "book_c_code_third_relations", "c_code_thirds"
   add_foreign_key "book_mood_relations", "books"
   add_foreign_key "book_mood_relations", "moods"
-  add_foreign_key "user_mood_relations", "moods"
-  add_foreign_key "user_mood_relations", "users"
 end

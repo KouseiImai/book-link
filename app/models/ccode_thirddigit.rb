@@ -71,5 +71,5 @@ class CcodeThirddigit < ActiveHash::Base
   ]
 
   include ActiveHash::Associations
-  has_many :c_code_thirds
+  has_many :books
 end
