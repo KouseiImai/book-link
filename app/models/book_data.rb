@@ -24,7 +24,9 @@ class BookData
       book_keyword.save
     end
 
-    mood = Mood.create(mood_text: mood_text)
+    mood = Mood.where(mood_text: mood_text).first_or_initialize
+    mood.save
+
     BookMoodRelation.create(book_id: book.id, mood_id: mood.id)
   end
 
