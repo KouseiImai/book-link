@@ -166,29 +166,6 @@
   font-weight: bold;
 }
 
-.book_keyword {
-  position: relative;
-  background: #fff;
-  box-shadow: 0px 0px 0px 5px #fff;
-  border: dashed 2px #a8d4ff;
-  padding: 0.8em 0.8em;
-  color: #454545;
-}
-
-.keyword_title {
-  position: absolute;
-  display: inline-block;
-  top: -13px;
-  left: 10px;
-  margin-top: 2px;
-  margin-left: 5px;
-  line-height: 1;
-  font-size: 19px;
-  background:#fff;
-  color: #a8d4ff;
-  font-weight: bold;
-}
-
 .text {
   word-break: break-all;
 }
