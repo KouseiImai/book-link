@@ -18,10 +18,10 @@ class BookData
 
     keyword_array = keyword.split(';')
     keyword_array.each do |word|
-      book_keyword = Keyword.new
-      book_keyword.keyword = word
-      book_keyword.book_id = book.id
-      book_keyword.save
+      keyword = word
+      keyword = Keyword.where(keyword: keyword).first_or_initialize
+      keyword.save
+      BookKeywordRelation.create(book_id: book.id, keyword_id: keyword.id)
     end
 
     mood = Mood.where(mood_text: mood_text).first_or_initialize

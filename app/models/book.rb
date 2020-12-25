@@ -1,7 +1,9 @@
 class Book < ApplicationRecord
   has_one_attached :image
   belongs_to :user
-  has_many   :keywords, dependent: :destroy
+
+  has_many  :book_keyword_relations, dependent: :destroy
+  has_many  :keyword, through: :book_keyword_relations
 
   has_many :book_mood_relations, dependent: :destroy
   has_many :moods, through: :book_mood_relations

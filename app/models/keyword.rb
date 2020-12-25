@@ -1,3 +1,4 @@
 class Keyword < ApplicationRecord
-  belongs_to :book
+  has_many  :book_keyword_relations, dependent: :destroy
+  has_many  :books, through: :book_keyword_relations
 end
