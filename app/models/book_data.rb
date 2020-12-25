@@ -1,6 +1,6 @@
 class BookData
   include ActiveModel::Model
-  attr_accessor :title, :publisher, :author, :publication_date, :isbn, :cover, :description, :ccode_firstdigit_id, :ccode_seconddigit_id, :ccode_thirddigit_id, :keyword, :mood_text, :user_id
+  attr_accessor :title, :publisher, :author, :publication_date, :isbn, :cover, :image, :description, :ccode_firstdigit_id, :ccode_seconddigit_id, :ccode_thirddigit_id, :keyword, :mood_text, :user_id
 
 
   # バリデーション
@@ -14,7 +14,7 @@ class BookData
 
 
   def save
-    book = Book.create(title: title, publisher: publisher, author: author, publication_date: publication_date, isbn: isbn, ccode_firstdigit_id: ccode_firstdigit_id, ccode_seconddigit_id: ccode_seconddigit_id, ccode_thirddigit_id: ccode_thirddigit_id, cover: cover, description: description, user_id: user_id)
+    book = Book.create(title: title, publisher: publisher, author: author, publication_date: publication_date, isbn: isbn, ccode_firstdigit_id: ccode_firstdigit_id, ccode_seconddigit_id: ccode_seconddigit_id, ccode_thirddigit_id: ccode_thirddigit_id, cover: cover, image: image, description: description, user_id: user_id)
 
     keyword_array = keyword.split(';')
     keyword_array.each do |word|
