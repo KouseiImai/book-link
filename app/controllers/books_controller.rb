@@ -28,7 +28,7 @@ class BooksController < ApplicationController
   end
 
   def update
-    render :edit unless @book.update(book_params)
+    render :edit unless @book.update(book_edit_params)
   end
 
   def destroy
@@ -45,6 +45,12 @@ class BooksController < ApplicationController
     params.require(:book_data).permit(:title, :image, :publisher, :author, :publication_date, :isbn,
                                  :ccode_firstdigit_id, :ccode_seconddigit_id, :ccode_thirddigit_id,
                                  :cover, :description, :keyword, :mood_text).merge(user_id: current_user.id)
+  end
+
+  def book_edit_params
+    params.require(:book).permit(:title, :image, :publisher, :author, :publication_date, :isbn,
+                                 :ccode_firstdigit_id, :ccode_seconddigit_id, :ccode_thirddigit_id,
+                                 :cover, :description).merge(user_id: current_user.id)
   end
 
   def set_book

@@ -50,7 +50,6 @@
       </div>
       <div class="form_field">
         <label>ジャンル </label><br>
-        <p class="complement">※自動入力されなかった際は選択して下さい。(情報が無くとも登録は可能です)</p>
         <div class="c_code_complement">販売対象：
           <%= f.collection_select(:ccode_firstdigit_id, CcodeFirstdigit.all, :id, :name, {prompt: '---'}, {class:"category_firstselect book_form", id:"c-code-first"}) %>
         </div>
@@ -62,12 +61,8 @@
         </div>
       </div>
       <div class="form_field">
-        <label>内容 </label>
-        <%= f.text_area :description, id:"description", class:"description_form book_form" %>
-      </div>
-      <div class="form_field">
-        <label hidden>説明 </label>
-        <%= f.hidden_field :keyword, id:"keyword", class:"keyword_form book_form" %>
+        <label>内容 / あらすじ </label>
+        <%= f.text_area :description, id:"description", class:"edit_description_form book_form" %>
       </div>
       <div class="form_btn">
         <%= f.submit "更新する", class:"send_btn" %>
