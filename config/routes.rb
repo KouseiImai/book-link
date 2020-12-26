@@ -3,4 +3,9 @@ Rails.application.routes.draw do
   root to: 'books#index'
   resources :books
   resources :users, only: :show
+  resources :searchs, only: [:index] do
+    collection do
+      get  'mood_search'
+    end
+  end
 end
