@@ -1,26 +1,26 @@
 if (location.pathname.match("/searchs") ) {
   document.addEventListener("DOMContentLoaded", () => {
-    const inputElement = document.getElementById("mood_input");
+    const inputElement = document.getElementById("keyword_input");
     inputElement.addEventListener("keyup", () => {
-      const word = document.getElementById("mood_input").value;
+      const keyword = document.getElementById("keyword_input").value;
       const XHR = new XMLHttpRequest();
-      XHR.open("GET", `searchs/mood_search/?word=${word}`, true);
+      XHR.open("GET", `searchs/keyword_search/?keyword=${keyword}`, true);
       XHR.responseType = "json";
       XHR.send();
       XHR.onload = () => {
-        const searchResult = document.getElementById("search-result");
+        const searchResult = document.getElementById("search-keyword_result");
         searchResult.innerHTML = "";
         if ( XHR.response ) { 
-          const result = XHR.response.word;
-          result.forEach((tag) => {
+          const result = XHR.response.keyword;
+          result.forEach((word) => {
             const childElement = document.createElement("div");
             childElement.setAttribute("class", "child");
-            childElement.setAttribute("id", tag.id);
-            childElement.innerHTML = tag.mood_text;
+            childElement.setAttribute("id", word.id);
+            childElement.innerHTML = word.keyword;
             searchResult.appendChild(childElement);
-            const clickElement = document.getElementById(tag.id);
+            const clickElement = document.getElementById(word.id);
             clickElement.addEventListener("click",() => {
-              document.getElementById("mood_input").value = clickElement.textContent;
+              document.getElementById("keyword_input").value = clickElement.textContent;
               clickElement.remove();
             });
           });
