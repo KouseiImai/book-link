@@ -1,6 +1,5 @@
 .search_form {
-  /* display: flex; */
-  /* height: 80px; */
+  display: flex;
 }
 
 .search_input {
@@ -9,6 +8,14 @@
   border: 1px solid black;
   display: block;
   margin-right: 10px;
+}
+
+.child{
+  border-bottom: #666 1px solid;
+  border-left: #666 1px solid;
+  border-right: #666 1px solid;
+  margin: 10px 0;
+  padding-left: 11px;
 }
 
 .search_btn {

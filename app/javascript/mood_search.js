@@ -8,7 +8,7 @@ if (location.pathname.match("/searchs") ) {
       XHR.responseType = "json";
       XHR.send();
       XHR.onload = () => {
-        const searchResult = document.getElementById("search-result");
+        const searchResult = document.getElementById("search_result");
         searchResult.innerHTML = "";
         if ( XHR.response ) { 
           const result = XHR.response.word;
