@@ -10,7 +10,7 @@ if (location.pathname.match("/searchs") ) {
       XHR.onload = () => {
         const searchResult = document.getElementById("search_keyword_result");
         searchResult.innerHTML = "";
-        if ( XHR.response ) { 
+        if ( XHR.response.keyword != null ) { 
           const result = XHR.response.keyword;
           result.forEach((word) => {
             const childElement = document.createElement("div");

@@ -6,20 +6,23 @@ class SearchsController < ApplicationController
     set_ccode
   end
 
+  def search
+    binding.pry
+  end
+
   def mood_search
-    return nil if params[:word] == ""
-    mood_tag = Mood.where(['mood_text LIKE ?', "%#{params[:word]}%"] )
+    mood_tag = Mood.search_mood(params[:word])
     render json:{ word: mood_tag }
   end
-  
+
   def keyword_search
-    return nil if params[:keyword] == ""
-    keyword = Keyword.where(['keyword LIKE ?', "%#{params[:keyword]}%"] )
+    keyword = Keyword.search_keyword(params[:keyword])
     render json:{ keyword: keyword }
   end
-  
+
   def ccode_search
     @search_result = @p.result
+    render "search"
   end
 
 

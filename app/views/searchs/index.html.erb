@@ -2,13 +2,18 @@
   <h1 class="h1">検索項目</h1>
   <div class="feeling_field">
     <label>今の気分より本を探す</label>
-    <form class="search_form">
+    <%# <form action="/searchs/search" method="get" class="search_form">
       <div>
         <input type=text class="search_input" id="mood_input">
         <div id="search_result" class="result_form"></div>
       </div>
       <button class="search_btn">検索</button>
-    </form>
+    </form> %>
+    <%= form_with url: search_searchs_path, method: :get, local: true do |f| %>
+      <%= f.text_field :mood_text, id: "mood_input", class:"search_input"%>
+      <div id="search_result" class="result_form"></div>
+      <%= f.submit '検索' %>
+    <% end %>
   </div>
 
   <div class="keyword_field">
