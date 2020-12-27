@@ -4,7 +4,7 @@ if (location.pathname.match("/searchs") ) {
     inputElement.addEventListener("keyup", () => {
       const keyword = document.getElementById("keyword_input").value;
       const XHR = new XMLHttpRequest();
-      XHR.open("GET", `searchs/keyword_search/?keyword=${keyword}`, true);
+      XHR.open("GET", `searchs/keyword_text_search/?keyword=${keyword}`, true);
       XHR.responseType = "json";
       XHR.send();
       XHR.onload = () => {

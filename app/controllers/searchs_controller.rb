@@ -6,18 +6,42 @@ class SearchsController < ApplicationController
     set_ccode
   end
 
-  def search
-    binding.pry
-  end
-
   def mood_search
-    mood_tag = Mood.search_mood(params[:word])
-    render json:{ word: mood_tag }
+    mood = Mood.search_mood_id(params[:mood_text])
+    if mood.blank?
+      redirect_to "/searchs", flash: { mood_error: "無効な入力値です"}
+    else
+      relation = BookMoodRelation.search_relations(mood[0][:id])
+      @search_result = []
+      relation.each do |book|
+        @search_result += Book.search_books(book.book_id)
+      end
+      render "search"
+    end
   end
 
   def keyword_search
-    keyword = Keyword.search_keyword(params[:keyword])
-    render json:{ keyword: keyword }
+    keyword = Keyword.search_keyword_id(params[:keyword])
+    if keyword.blank?
+      redirect_to "/searchs", flash: { keyword_error: "無効な入力値です"}
+    else
+      relation = BookKeywordRelation.search_relations(keyword[0][:id])
+      @search_result = []
+      relation.each do |book|
+        @search_result += Book.search_books(book.book_id)
+      end
+      render "search"
+    end
+  end
+
+  def mood_text_search
+    mood_text = Mood.search_mood(params[:word])
+    render json:{ word: mood_text }
+  end
+
+  def keyword_text_search
+    keyword_text = Keyword.search_keyword(params[:keyword])
+    render json:{ keyword: keyword_text }
   end
 
   def ccode_search

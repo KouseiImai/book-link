@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :users, only: :show
   resources :searchs, only: [:index] do
     collection do
-      get  'mood_search', 'keyword_search', 'ccode_search', 'search'
+      get  'mood_text_search', 'keyword_text_search', 'mood_search', 'keyword_search', 'ccode_search'
     end
   end
 end
