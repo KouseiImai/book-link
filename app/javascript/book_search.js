@@ -40,7 +40,7 @@ if ( location.pathname == "/books/new" || location.pathname == "/books"){
           $("#title").val(data[0].summary.title);
           $("#publisher").val(data[0].summary.publisher);
           $("#author").val(data[0].summary.author);
-          if ( data[0].onix.CollateralDetail.TextContent[0].Text != undefined ){
+          if ( data[0].onix.CollateralDetail.TextContent[0].Text != undefined && data[0].onix.CollateralDetail.TextContent[0].Text != ""){
             $("#description").val(data[0].onix.CollateralDetail.TextContent[0].Text);
           } else if ( data[0].onix.CollateralDetail.TextContent[1].Text != undefined ){
             $("#description").val(data[0].onix.CollateralDetail.TextContent[1].Text);

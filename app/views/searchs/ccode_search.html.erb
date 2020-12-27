@@ -1,0 +1,31 @@
+<div class='main'> 
+  <h1>
+    検索結果
+  </h1>
+  <% if @search_result.length !=0 %>
+    <% @search_result.each do |book| %>
+      <%= link_to book_path(book.id), method: :get do %> 
+        <li class='book_list'>
+          <% if book.cover != "" %>
+            <div class='book_img_content'>
+              <%= image_tag book.cover, class: 'book_cover' %>
+            </div> 
+          <% else %>
+            <% if book.image.attached? %>
+              <%= image_tag book.image.variant(resize: '200x286') %>
+            <% else %>
+              <%= image_tag "No image.png", size:'200x286' %>
+            <% end %>
+          <% end %>
+          <div class='book_info'>
+            <h3 class='book_title'>
+              <%= book.title %>
+            </h3>
+          </div>
+        </li>
+      <% end %>
+    <% end %>
+  <% else %>
+    該当する商品はありません
+  <% end %>
+</div>

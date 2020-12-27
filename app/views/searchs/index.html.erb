@@ -24,9 +24,23 @@
 
   <div class="genre_field">
     <label>ジャンルより本を探す</label>
-    <form class="search_form">
-      <input type=text class="search_input">
-      <button class="search_btn">検索</button>
-    </form>
+    <%= search_form_for @p, url: ccode_search_searchs_path do |f| %>
+      <%= f.label :ccode_firstdigit_id_eq, '販売対象' %>
+      <%= f.collection_select :ccode_firstdigit_id_eq, CcodeFirstdigit.where(id: @ccode_first_num), :id, :name, include_blank: '指定なし' %>
+      <br>
+      <%= f.submit '検索' %>
+    <% end %>
+    <%= search_form_for @p, url: ccode_search_searchs_path do |f| %>
+      <%= f.label :ccode_seconddigit_id_eq, '発行形態' %>
+      <%= f.collection_select :ccode_seconddigit_id_eq, CcodeSeconddigit.where(id: @ccode_second_num), :id, :name, include_blank: '指定なし' %>
+      <br>
+      <%= f.submit '検索' %>
+    <% end %>
+    <%= search_form_for @p, url: ccode_search_searchs_path do |f| %>
+      <%= f.label :ccode_thirddigit_id_eq, '内容' %>
+      <%= f.collection_select :ccode_thirddigit_id_eq, CcodeThirddigit.where(id: @ccode_third_num), :id, :name, include_blank: '指定なし' %>
+      <br>
+      <%= f.submit '検索' %>
+    <% end %>
   </div>
 </div>
