@@ -9,7 +9,7 @@ class SearchsController < ApplicationController
   def mood_search
     mood = Mood.search_mood_id(params[:mood_text])
     if mood.blank?
-      redirect_to "/searchs", flash: { mood_error: "無効な入力値です"}
+      redirect_to "/searchs", flash: { mood_error: "入力値は登録されていません"}
     else
       relation = BookMoodRelation.search_relations(mood[0][:id])
       @search_result = []
@@ -23,7 +23,7 @@ class SearchsController < ApplicationController
   def keyword_search
     keyword = Keyword.search_keyword_id(params[:keyword])
     if keyword.blank?
-      redirect_to "/searchs", flash: { keyword_error: "無効な入力値です"}
+      redirect_to "/searchs", flash: { keyword_error: "入力値はキーワードとして登録されていません"}
     else
       relation = BookKeywordRelation.search_relations(keyword[0][:id])
       @search_result = []

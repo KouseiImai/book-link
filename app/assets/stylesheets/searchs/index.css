@@ -1,5 +1,96 @@
+.search_main {
+  width: 100vw;
+  height: 100%;
+  padding: 120px 0 50px 40px;
+  background-color:rgb(246, 246, 246);
+  background-color:white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: black;
+}
+
+.search_index {
+  color: #333333;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+}
+
+.search_index {
+  position: relative;
+  display: inline-block;
+  padding: 30px 120px;
+}
+
+.search_index:before, .search_index:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  display: inline-block;
+  width: 110px;
+  height: 2px;
+  border-top: solid 1px black;
+  border-bottom: solid 1px black;
+}
+
+.search_index:before {
+  left:0;
+}
+.search_index:after {
+  right: 0;
+}
+
+.search_complement {
+  color: #818181;
+}
+
+table,tr,td {
+  border: solid 1px #939393;
+}
+
+tr,td {
+  padding: 25px 40px 20px 20px;
+}
+
+.td_index {
+  background-color: #dbedff;
+}
+
+.td_search_form {
+  background-color: #fffff9;
+}
+
+
+.feeling_field, .keyword_field, .genre_field {
+  width: 1000px;
+  display: flex;
+}
+.genre_field {
+
+}
+
+.label_text {
+  width: 200px;
+  margin-right: 50px;
+}
+
+.search_errors {
+  color: red;
+}
+
+.search_select_content {
+  display: flex;
+  flex-direction: column;
+}
+
 .search_form {
   display: flex;
+}
+
+.mood_form {
+
 }
 
 .search_input {
@@ -7,7 +98,6 @@
   padding: 10px;
   border: 1px solid black;
   display: block;
-  margin-right: 10px;
 }
 
 .child{
@@ -18,8 +108,13 @@
   padding-left: 11px;
 }
 
+.search_select {
+  width: 200px;
+  height: 45px;
+}
+
 .search_btn {
   height: 45px;
   width: 80px;
-  margin: 5px 0 0 0;
+  margin: 5px 0 0 10px;
 }
