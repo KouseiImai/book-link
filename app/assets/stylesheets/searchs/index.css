@@ -67,9 +67,6 @@ tr,td {
   width: 1000px;
   display: flex;
 }
-.genre_field {
-
-}
 
 .label_text {
   width: 200px;
@@ -87,10 +84,6 @@ tr,td {
 
 .search_form {
   display: flex;
-}
-
-.mood_form {
-
 }
 
 .search_input {
