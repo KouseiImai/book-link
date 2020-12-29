@@ -14,7 +14,6 @@ class Book < ApplicationRecord
   belongs_to_active_hash :CcodeThirddigit
 
   def self.search_books(id)
-    Book.where(['id LIKE ?', "#{id}"] )
+    Book.where(['id LIKE ?', id.to_s])
   end
-
 end

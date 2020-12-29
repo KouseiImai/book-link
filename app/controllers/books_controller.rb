@@ -43,8 +43,8 @@ class BooksController < ApplicationController
 
   def book_params
     params.require(:book_data).permit(:title, :image, :publisher, :author, :publication_date, :isbn,
-                                 :ccode_firstdigit_id, :ccode_seconddigit_id, :ccode_thirddigit_id,
-                                 :cover, :description, :keyword, :mood_text).merge(user_id: current_user.id)
+                                      :ccode_firstdigit_id, :ccode_seconddigit_id, :ccode_thirddigit_id,
+                                      :cover, :description, :keyword, :mood_text).merge(user_id: current_user.id)
   end
 
   def book_edit_params
