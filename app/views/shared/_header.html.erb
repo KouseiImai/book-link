@@ -6,9 +6,9 @@
     </div>
     <ul class='lists'> 
       <% if user_signed_in? %> 
-        <li><%= link_to '本を登録する', new_book_path, class: "book_new" %></li>
+        <li><%= link_to '書籍を登録する', new_book_path, class: "book_new" %></li>
       <% end %>
-      <li><%= link_to '本を探す', searchs_path, class: "books_search" %></li>
+      <li><%= link_to '書籍を探す', searchs_path, class: "books_search" %></li>
       <% if user_signed_in? %> 
         <li><%= link_to current_user.nickname, user_path(current_user.id), class: "user_nickname" %></li> 
         <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>

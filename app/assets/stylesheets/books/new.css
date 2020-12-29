@@ -1,20 +1,45 @@
-.book_info_form {
-  background-color: white;
-  padding: 0 50px 50px 50px;
-  margin-top: 20px;
-  box-shadow: 0 0 10px rgba(41, 41, 41, 0.2);
-  background-color: white;
-  box-sizing: border-box;
-  font-family: "游ゴシック", "YuGothic";
+.new_main {
+  width: 100vw;
+  height: 100%;
+  padding: 120px 0 50px 0;
+  background-color:rgb(246, 246, 246);
+  background-color:white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: black;
 }
 
-.h1 {
+.index {
   color: #333333;
-  text-shadow: none;
   font-weight: bold;
   font-size: 20px;
   text-align: center;
-  padding: 50px;
+}
+
+.index {
+  position: relative;
+  display: inline-block;
+  padding: 25px 120px;
+}
+
+.index:before, .index:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  display: inline-block;
+  width: 110px;
+  height: 2px;
+  border-top: solid 1px black;
+  border-bottom: solid 1px black;
+}
+
+.index:before {
+  left:0;
+}
+.index:after {
+  right: 0;
 }
 
 .error_alert {
@@ -54,7 +79,7 @@
   border: 2px solid #ffffff;
 }
 
-.category_form, .description_form {
+.pubdate_form, .category_form, .description_form, .keyword_form {
   visibility: hidden;
   display: none;
 }
@@ -64,41 +89,20 @@
 }
 
 .form_field {
+  width: 500px;
   color: #333333;
-  text-shadow: none;
-  font-weight: bold;
-  font-size: 20px;
+  font-family: "游ゴシック", "YuGothic";
+  font-size: 18px;
 }
 
 .complement {
-  color: black;
-  text-shadow: none;
-  font-size: 15px;
+  color:  #818181;
+  font-size: 14px;
 }
 
-.example {
-  color: black;
-  text-shadow: none;
+.form_complement, .example {
+  color:  #818181;
   font-size: small;
-  margin-bottom: 15px;
-}
-
-.category_firstselect,.category_secondselect {
-  height: 30px;
-  width: 180px;
-  margin-top: 15px;
-  border: 1px solid #D8D8D8;
-  border-radius: 5px;
-  font-family: "游ゴシック", "YuGothic";
-}
-
-.category_thirdselect {
-  height: 30px;
-  width: 180px;
-  margin: 15px 0 20px 0;
-  border: 1px solid #D8D8D8;
-  border-radius: 5px;
-  font-family: "游ゴシック", "YuGothic";
 }
 
 .image {
@@ -108,6 +112,12 @@
 .form_btn {
   display: flex;
   justify-content: center;
+}
+
+#book_data_image {
+  width: 600px;
+  font-size: 20px;
+  font-weight: 300;
 }
 
 .send_btn {

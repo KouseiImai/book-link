@@ -55,10 +55,14 @@ tr,td {
 }
 
 .td_index {
+  width: 400px;
+  height: 160px;
   background-color: #dbedff;
 }
 
-.td_search_form {
+.td_form {
+  width: 750px;
+  height: 160px;
   background-color: #fffff9;
 }
 
@@ -106,8 +110,40 @@ tr,td {
   height: 45px;
 }
 
-.search_btn {
+#q_ccode_firstdigit_id_eq, #q_ccode_seconddigit_id_eq {
   height: 45px;
+  width: 120px;
+  margin-top: 5px;
+}
+
+#q_ccode_thirddigit_id_eq {
+  height: 45px;
+  width: 280px;
+  margin-top: 5px;
+}
+
+.search_btn {
+  /* width: 10vw; */
   width: 80px;
+  height: 45px;
+  /* margin: 5px 0 15px 5px; */
   margin: 5px 0 0 10px;
+  padding: 10px;
+  border: 1px solid #D8D8D8;
+  border-radius: 5px;
+  font-family: "游ゴシック", "YuGothic";
+  padding: 8px 20px;
+  font-size: 14px;
+  border: 2px solid #57C3E9;
+  color: #57C3E9;
+  background-color: white;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 3px;
+}
+
+.search_btn:hover {
+  background: #57C3E9;
+  color: #ffffff;
+  border: 2px solid #ffffff;
 }
