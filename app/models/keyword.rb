@@ -8,6 +8,7 @@ class Keyword < ApplicationRecord
 
   def self.search_keyword(keyword)
     return nil if keyword == ''
+
     Keyword.where(['keyword LIKE ?', "%#{keyword}%"])
   end
 end
