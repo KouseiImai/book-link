@@ -8,7 +8,6 @@ class Mood < ApplicationRecord
 
   def self.search_mood(word)
     return nil if word == ''
-
     Mood.where(['mood_text LIKE ?', "%#{word}%"])
   end
 end

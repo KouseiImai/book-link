@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
-  before_action :set_book, only: [:show, :edit, :update, :destroy]
+  before_action :set_data, only: [:show, :edit, :update, :destroy]
 
   def index
     @books = Book.all
@@ -8,7 +8,6 @@ class BooksController < ApplicationController
 
   def new
     @book_data = BookData.new
-    @book_keyword = Keyword.new
   end
 
   def create
@@ -53,7 +52,8 @@ class BooksController < ApplicationController
                                  :cover, :description).merge(user_id: current_user.id)
   end
 
-  def set_book
+  def set_data
     @book = Book.find(params[:id])
+    @moods = @book.moods
   end
 end
