@@ -82,20 +82,39 @@
       </div>
     </div>
   </div>
-  <div class="punctuation"></div>
-  <div class="mood_data">
-    <h1 class="mood_data_index">どんな時に読んだか・読み終えての気分は？</h1>
-    <div class="mood_contents">
-      <% @mood_datas.each do |mood|%>
-        ・<%= mood.mood_text %><br>
+  <div class="communication_contents">
+    <div class="mood_data">
+      <h1 class="mood_data_index">どんな時に読んだか・読み終えての気分は？</h1>
+      <div class="mood_contents">
+        <% @mood_datas.each do |mood|%>
+          ・<%= mood.mood_text %><br>
+        <% end %>
+      </div>
+      <%= form_with model: @mood, url: mood_create_book_path, local: true do |f| %>
+        <div class="mood_input_form">
+          <%= f.text_area :mood_text, placeholder: "どんな時に読んだか・読み終えての気分を入力して下さい", rows: "2" %>
+          <%= f.submit "投稿する", class:"send_btn" %>
+        </div>
       <% end %>
     </div>
-    <%= form_with model: @mood, url: mood_create_book_path, local: true do |form| %>
-      <%= render 'shared/error_messages', model: @mood %>
-      <div class="mood_input_form">
-        <%= form.text_area :mood_text, placeholder: "どんな時に読んだか・読み終えての気分を投稿する", rows: "2" %>
-        <%= form.submit "投稿する", class:"send_btn" %>
-      </div>
-    <% end %>
+    <div class="comment_data">
+      <h1 class="comment_data_index">＜コメント一覧＞</h1>
+      <% @comments.each do |comment| %>
+        <p>
+          <b><%= comment.user.nickname %>：</b>
+          <%= comment.text %>
+        </p>
+      <% end %>
+      <% if user_signed_in? %>
+        <%= form_with(model: [@book, @comment], local: true) do |f| %>
+          <div class="comment_input_form">
+            <%= f.text_area :text, placeholder: "コメントを入力して下さい", rows: "2" %>
+            <%= f.submit "コメントする", class:"send_btn" %>
+          </div>
+        <% end %>
+      <% else %>
+        <p class="warning_text">※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p>
+      <% end %>
+    </div>
   </div>
 </div>

@@ -22,6 +22,8 @@ class BooksController < ApplicationController
 
   def show
     @mood = Mood.new
+    @comment = Comment.new
+    @comments = @book.comments.includes(:user)
   end
 
   def mood_create
