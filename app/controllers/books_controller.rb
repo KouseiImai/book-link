@@ -21,6 +21,20 @@ class BooksController < ApplicationController
   end
 
   def show
+    @mood = Mood.new
+  end
+
+  def mood_create
+    unless params[:mood_text].nil?
+      mood = Mood.where(mood_text: params[:mood][:mood_text]).first_or_initialize
+      book_mood_relation = BookMoodRelation.where(mood_id: mood.id, book_id: params[:id]).first_or_initialize
+      if book_mood_relation.id.nil?
+        mood.save
+        book_mood_relation = BookMoodRelation.create(mood_id: mood.id, book_id: params[:id])
+        book_mood_relation.save
+      end
+    end
+    redirect_to book_path
   end
 
   def edit
@@ -52,8 +66,12 @@ class BooksController < ApplicationController
                                  :cover, :description).merge(user_id: current_user.id)
   end
 
+  def mood_params
+    params.require(:mood).permit(:mood_text)
+  end
+
   def set_data
     @book = Book.find(params[:id])
-    @moods = @book.moods
+    @mood_datas = @book.moods
   end
 end

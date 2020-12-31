@@ -12,4 +12,10 @@ class Book < ApplicationRecord
   belongs_to_active_hash :CcodeFirstdigit
   belongs_to_active_hash :CcodeSeconddigit
   belongs_to_active_hash :CcodeThirddigit
+
+  with_options presence: true do
+    validates :title
+    validates :publisher
+    validates :author
+  end
 end
