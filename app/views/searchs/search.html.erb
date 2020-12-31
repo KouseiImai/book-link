@@ -1,0 +1,45 @@
+<div class='main'> 
+  <h1 class="index">検索結果</h1>
+  <% if @search_result.length !=0 %>
+    <% @search_result.each do |book| %>
+      <%= link_to book_path(book.id), method: :get do %> 
+        <li class='search_book_list'>
+          <% if book.cover != "" %>
+            <div class='book_img_content'>
+              <%= image_tag book.cover, class: 'book_cover' %>
+            </div> 
+          <% else %>
+            <% if book.image.attached? %>
+              <%= image_tag book.image.variant(resize: '200x286') %>
+            <% else %>
+              <%= image_tag "No image.png", size:'200x286' %>
+            <% end %>
+          <% end %>
+          <div class='search_book_info'>
+            <h3 class='book_title'>
+              タイトル：<%= book.title %>
+            </h3>
+            <div class="book_author">
+              <label>著者：</label>
+              <%= book.author %>
+            </div>
+            <div class="book_publisher">
+              <label>出版社：</label>
+              <%= book.publisher %>
+            </div>
+            <div class="book_publication">
+              <label>発売日：</label>
+              <%= book.publication_date %>
+            </div>
+            <div class="book_isbn">
+              <label>ISBN：</label>
+              <%= book.isbn %>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    <% end %>
+  <% else %>
+    該当する書籍はありません
+  <% end %>
+</div>

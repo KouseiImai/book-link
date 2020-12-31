@@ -1,0 +1,149 @@
+.search_main {
+  width: 100vw;
+  height: 100%;
+  padding: 120px 0 50px 40px;
+  background-color:rgb(246, 246, 246);
+  background-color:white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: black;
+}
+
+.search_index {
+  color: #333333;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+}
+
+.search_index {
+  position: relative;
+  display: inline-block;
+  padding: 30px 120px;
+}
+
+.search_index:before, .search_index:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  display: inline-block;
+  width: 110px;
+  height: 2px;
+  border-top: solid 1px black;
+  border-bottom: solid 1px black;
+}
+
+.search_index:before {
+  left:0;
+}
+.search_index:after {
+  right: 0;
+}
+
+.search_complement {
+  color: #818181;
+}
+
+table,tr,td {
+  border: solid 1px #939393;
+}
+
+tr,td {
+  padding: 25px 40px 20px 20px;
+}
+
+.td_index {
+  width: 400px;
+  height: 160px;
+  background-color: #dbedff;
+}
+
+.td_form {
+  width: 750px;
+  height: 160px;
+  background-color: #fffff9;
+}
+
+
+.feeling_field, .keyword_field, .genre_field {
+  width: 1000px;
+  display: flex;
+}
+
+.label_text {
+  width: 200px;
+  margin-right: 50px;
+}
+
+.search_errors {
+  color: red;
+}
+
+.search_select_content {
+  display: flex;
+  flex-direction: column;
+}
+
+.search_form {
+  display: flex;
+}
+
+.search_input {
+  width: 500px;
+  padding: 10px;
+  border: 1px solid black;
+  display: block;
+}
+
+.child{
+  border-bottom: #666 1px solid;
+  border-left: #666 1px solid;
+  border-right: #666 1px solid;
+  margin: 10px 0;
+  padding-left: 11px;
+}
+
+.search_select {
+  width: 200px;
+  height: 45px;
+}
+
+#q_ccode_firstdigit_id_eq, #q_ccode_seconddigit_id_eq {
+  height: 45px;
+  width: 120px;
+  margin-top: 5px;
+}
+
+#q_ccode_thirddigit_id_eq {
+  height: 45px;
+  width: 280px;
+  margin-top: 5px;
+}
+
+.search_btn {
+  /* width: 10vw; */
+  width: 80px;
+  height: 45px;
+  /* margin: 5px 0 15px 5px; */
+  margin: 5px 0 0 10px;
+  padding: 10px;
+  border: 1px solid #D8D8D8;
+  border-radius: 5px;
+  font-family: "游ゴシック", "YuGothic";
+  padding: 8px 20px;
+  font-size: 14px;
+  border: 2px solid #57C3E9;
+  color: #57C3E9;
+  background-color: white;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 3px;
+}
+
+.search_btn:hover {
+  background: #57C3E9;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+}

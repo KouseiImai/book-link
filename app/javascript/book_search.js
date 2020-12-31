@@ -1,9 +1,9 @@
-if ( location.pathname == "/books/new" ){
+if ( location.pathname == "/books/new" || location.pathname == "/books"){
   $(function() {
     $('#getBookContents').click( function( e ) {
       e.preventDefault();
-      $('.book_form').val(" ");
-      $("#thumbnail").html(' ');
+      $('.book_form').val("");
+      $("#thumbnail").html('');
       $("#book-image-field").css({'visibility':'visible','display':'inline'});
       const isbn = $("#isbn").val();
       const url = "https://api.openbd.jp/v1/get?isbn=" + isbn;
@@ -23,7 +23,7 @@ if ( location.pathname == "/books/new" ){
             XHR.send();
             XHR.onload = () => {
               if ( XHR.status === 200 ){
-                $("#thumbnail").html('<label>イメージ</label><br><img src=\"' + data[0].summary.cover + '\" style=\"margin: 5px 0 20px 0\" />');
+                $("#thumbnail").html('<img src=\"' + data[0].summary.cover + '\" style=\"margin: 5px 0 20px 0\" />');
                 $("#book-image-field").css({'visibility':'hidden','display':'none'});
                 $("#thumbnail").css({'color':'black'});
                 const book_image = data[0].summary.cover;
@@ -40,7 +40,7 @@ if ( location.pathname == "/books/new" ){
           $("#title").val(data[0].summary.title);
           $("#publisher").val(data[0].summary.publisher);
           $("#author").val(data[0].summary.author);
-          if ( data[0].onix.CollateralDetail.TextContent[0].Text != undefined ){
+          if ( data[0].onix.CollateralDetail.TextContent[0].Text != undefined && data[0].onix.CollateralDetail.TextContent[0].Text != ""){
             $("#description").val(data[0].onix.CollateralDetail.TextContent[0].Text);
           } else if ( data[0].onix.CollateralDetail.TextContent[1].Text != undefined ){
             $("#description").val(data[0].onix.CollateralDetail.TextContent[1].Text);

@@ -1,3 +1,9 @@
+.book_contents {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .edit_book_title {
   font-size: 25px;
   display: inline-block;
@@ -27,4 +33,35 @@
 
 b {
   font-size: 20px;
+}
+
+.td_edit_index {
+  width: 300px;
+  background-color: #dbedff;
+}
+
+.td_edit_form {
+  width: 600px;
+  background-color: #fffff9;
+}
+
+.td_edit_description_form {
+  width: 600px;
+  background-color: #fffff9;
+  padding: 5px;
+}
+
+.category_firstselect,.category_secondselect, .category_thirdselect {
+  height: 30px;
+  width: 180px;
+  margin: 15px 0 20px 0;
+  border: 1px solid #D8D8D8;
+  border-radius: 5px;
+  font-family: "游ゴシック", "YuGothic";
+}
+
+.edit_description_form {
+  height: 250px;
+  width: 580px;
+  margin: 0;
 }

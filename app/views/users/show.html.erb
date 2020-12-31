@@ -1,15 +1,15 @@
-<div class='main'> 
+<div class='main'>
   <div class="user_show_contents">
-    <p class="user_show_nickname"><%= @nickname %>さんの登録本一覧</p>
+    <p class="index"><%= @nickname %>さんが登録している書籍一覧</p>
     <div class="user_show_books_data">
       <% if @books != blank? %>
         <% @books.each do |book| %>
           <div class="user_show_book">
-            <%= link_to book_path(book.id), size:'200x280', class: 'user_show_book_image', method: :get do %> 
+            <%= link_to book_path(book.id), size:'200x280', class: 'user_show_book_image', method: :get do %>
               <% if book.cover != "" %>
                 <div class='item_img_content'>
                   <%= image_tag book.cover, size:'200x280', class: 'user_show_book_cover' %>
-                </div> 
+                </div>
               <% else %>
                 <% if book.image.attached? %>
                   <%= image_tag book.image.variant(resize: '200x280') %>

@@ -1,0 +1,105 @@
+<div class='search_main'>
+  <h1 class="search_index">登録されている書籍の検索</h1>
+  <table class="table">
+    <div class="feeling_field">
+      <tr>
+        <td class="td_index">
+          <label class="label_text">気分より書籍を探す</label>
+          <p class="search_complement">※登録されているワードから検索出来ます</p>
+        </td>
+        <td class="td_form">
+          <p class="search_complement">例）明るい気分になりたい、驚きたい、など....</p>
+          <p class="search_complement">※文字を入力すると登録済みのワードが出てきます</p>
+          <% if flash[:mood_error].present? %>
+            <ul class="search_errors">
+              <li><%= flash[:mood_error] %></li>
+            </ul>
+          <% end %>
+          <%= form_with url: mood_search_searchs_path, method: :get, local: true do |f| %>
+            <div class="search_form">
+              <div class="mood_form">
+                <%= f.text_field :mood_text, id: "mood_input", class:"search_input"%>
+                <div id="search_result" class="result_form"></div>
+              </div>
+              <%= f.submit '検索', class: "search_btn"%>
+            </div>
+          <% end %>
+        </td>
+      </tr>
+    </div>
+
+    <div class="keyword_field">
+      <tr>
+        <td class="td_index">
+          <label class="label_text">キーワードにて書籍を探す</label>
+          <p class="search_complement">※登録されているキーワードから検索出来ます</p>
+        </td>
+        <td class="td_form">
+          <p class="search_complement">例）本屋大賞、教育、泣ける、など...</p>
+            <p class="search_complement">※文字を入力すると登録済みのワードが出てきます</p>
+          <% if flash[:keyword_error].present? %>
+            <ul class="search_errors">
+              <li><%= flash[:keyword_error] %></li>
+            </ul>
+          <% end %>
+          <%= form_with url: keyword_search_searchs_path, method: :get, local: true do |f| %>
+            <div class="search_form">
+              <div class="keyeord_form">
+                <%= f.text_field :keyword, id: "keyword_input", class:"search_input"%>
+                <div id="search_keyword_result" class="result_form"></div>
+              </div>
+              <%= f.submit '検索', class:"search_btn" %>
+            </div>
+          <% end %>
+        </td>
+      </tr>
+    </div>
+
+    <div class="genre_field">
+      <tr>
+        <td  class="td_index" rowspan="4">
+          <label class="label_text">ジャンルより書籍を探す</label>
+          <p class="search_complement">※登録されているワードから検索出来ます</p>
+        </td>
+        <div class="search_select_content">
+          <tr>
+            <td class="td_form">
+              <%= search_form_for @p, url: ccode_search_searchs_path do |f| %>
+                <%= f.label :ccode_firstdigit_id_eq, '販売対象より検索' %>
+                <p class="search_complement">例）専門、一般、実用、など...</p>
+                <div class="search_form">
+                  <%= f.collection_select :ccode_firstdigit_id_eq, CcodeFirstdigit.where(id: @ccode_first_num), :id, :name, include_blank: '指定なし' %>
+                  <%= f.submit '検索', class:"search_btn" %>
+                </div>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <td class="td_form">
+              <%= search_form_for @p, url: ccode_search_searchs_path do |f| %>
+                <%= f.label :ccode_seconddigit_id_eq, '発行形態より検索' %>
+                <p class="search_complement">例）文庫、新書、コミック、など...</p>
+                <div class="search_form">
+                  <%= f.collection_select :ccode_seconddigit_id_eq, CcodeSeconddigit.where(id: @ccode_second_num), :id, :name, include_blank: '指定なし' %>
+                  <%= f.submit '検索', class:"search_btn" %>
+                </div>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <td class="td_form">
+              <%= search_form_for @p, url: ccode_search_searchs_path do |f| %>
+                <%= f.label :ccode_thirddigit_id_eq, '内容より検索' %>
+                <p class="search_complement">例）小説、経済、スポーツ、など...</p>
+                <div class="search_form">
+                  <%= f.collection_select :ccode_thirddigit_id_eq, CcodeThirddigit.where(id: @ccode_third_num), :id, :name, include_blank: '指定なし' %>
+                  <%= f.submit '検索', class:"search_btn" %>
+                </div>
+              <% end %>
+            </td>
+          </tr>
+        </div>
+      </tr>
+    </div>
+  </table>
+</div>
