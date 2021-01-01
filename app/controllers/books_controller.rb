@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :move_to_index, except: [:index, :show]
+  before_action :move_to_index, except: [:index, :show, :new_guest]
   before_action :set_data, only: [:show, :edit, :update, :destroy]
 
   def index

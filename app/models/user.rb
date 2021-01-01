@@ -17,4 +17,14 @@ class User < ApplicationRecord
     validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i }
     validates :password_confirmation, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i }
   end
+
+  def self.guest
+    find_or_create_by(email: 'guest@gmail.com') do |user|
+      user.nickname = 'ゲスト'
+      user.gender_id = 0
+      user.age_id = 2
+      user.password = SecureRandom.urlsafe_base64
+      user.password_confirmation = user.password
+    end
+  end
 end
