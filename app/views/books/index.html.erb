@@ -1,4 +1,15 @@
-<div class='main'> 
+<div class='main'>
+  <% flash.each do |message_type, message| %>
+    <% if flash.alert != nil %>
+      <div class="alert_message">
+        <%= message %>
+      </div>
+    <% elsif flash.notice != nil %>
+      <div class="notice_message">
+        <%= message %>
+      </div>
+    <% end %>
+  <% end %>
   <div class="book_link_explanation">
     <p class="app_title">BOOK LINK</p>
     <p class="app_explanation">今求めている本と出会うの実現を目指しているサービスです</p>

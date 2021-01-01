@@ -69,9 +69,23 @@
 }
 
 .logout,.sign_up {
-  margin: 0 4vw 0 3vw;
+  margin: 0 2vw 0 2vw;
   color: #333333;
   font-weight: bold;
   text-align: center;
+}
 
+.guest_login {
+  margin-right: 2vw;
+  padding: 7px;
+  color: #333333;
+  border: double 4px #666;
+  font-weight: bold;
+  text-align: center;
+}
+
+.guest_login:hover {
+  background: #666;
+  color: #ffffff;
+  border: double 4px #ffffff;
 }
