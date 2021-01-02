@@ -109,6 +109,16 @@
   border: solid,1px #000000;
 }
 
+.preview_contents {
+  display: flex;
+  justify-content: center;
+}
+
+.preview {
+  width: 200px;
+  height: 286px;
+}
+
 .form_btn {
   display: flex;
   justify-content: center;

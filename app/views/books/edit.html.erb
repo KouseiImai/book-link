@@ -27,7 +27,8 @@
     <%= render 'shared/error_messages', model: f.object %>
     <div class="book_cover_field">
       <% unless @book.cover != "" %>
-        <%= f.file_field :image %>
+        <%= f.file_field :image, id:"image" %>
+        <div id="image-list"></div>
       <% end %>
     </div>
     <table>
