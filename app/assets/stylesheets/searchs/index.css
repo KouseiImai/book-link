@@ -11,6 +11,12 @@
   color: black;
 }
 
+@media (max-width: 1130px) {
+  .search_main {
+    padding: 120px 0 50px 0;
+  }
+}
+
 .search_index {
   color: #333333;
   font-weight: bold;
@@ -66,6 +72,17 @@ tr,td {
   background-color: #fffff9;
 }
 
+@media (max-width: 1170px) {
+  .td_form {
+    width: 600px;
+  }
+}
+
+@media (max-width: 1130px) {
+  .td_form {
+    width: 500px;
+  }
+}
 
 .feeling_field, .keyword_field, .genre_field {
   width: 1000px;
@@ -95,6 +112,12 @@ tr,td {
   padding: 10px;
   border: 1px solid black;
   display: block;
+}
+
+@media (max-width: 1170px) {
+  .search_input {
+    width: 400px;
+  }
 }
 
 .child{
