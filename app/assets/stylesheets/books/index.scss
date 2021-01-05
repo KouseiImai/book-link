@@ -247,6 +247,14 @@ a {
   margin-bottom: 20px;
 }
 
+@media (max-width: 1160px) {
+  .can_do_contents2,.can_do_contents4,.can_do_contents1,.can_do_contents3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 .index_contents1, .index_contents3 {
   display: flex;
   justify-content: flex-start;
@@ -294,9 +302,17 @@ a {
 }
 
 .registration_image {
-  margin: 0 40px;
+  margin: 10px 40px;
   width: 500px;
   height: 500px;
+}
+
+@media (max-width: 1160px) {
+  .registration_image {
+    margin: 10px 20px;
+    width: 300px;
+    height: 300px;
+  }
 }
 
 .contents_index {
