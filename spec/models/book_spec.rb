@@ -33,14 +33,6 @@ RSpec.describe Book, type: :model do
         @book.valid?
         expect(@book.errors.full_messages).to include('著者を入力してください')
       end
-      it 'ISBNが重複した場合は登録ができない' do
-        @book.save
-        another_book = FactoryBot.build(:book)
-        another_book.user = FactoryBot.build(:user)
-        another_book.isbn = @book.isbn
-        another_book.valid?
-        expect(another_book.errors.full_messages).to include('ISBNはすでに存在します')
-      end
     end
   end
 end

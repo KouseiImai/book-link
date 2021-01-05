@@ -15,7 +15,7 @@ ja:
   activemodel:
     attributes:
       book_data:
-        user: ユーザー
+        user_id: ユーザー
         title: タイトル
         publisher: 出版社
         author: 著者
