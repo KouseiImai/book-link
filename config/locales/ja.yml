@@ -7,6 +7,7 @@ ja:
         age_id: 年齢
 
       book:
+        user: ユーザー
         title: タイトル
         publisher: 出版社
         author: 著者
