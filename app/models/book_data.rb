@@ -5,6 +5,7 @@ class BookData
 
   # バリデーション
   with_options presence: true do
+    validates :user_id
     validates :title
     validates :publisher
     validates :author
