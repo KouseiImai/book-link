@@ -27,7 +27,7 @@ class BooksController < ApplicationController
   end
 
   def mood_create
-    unless params[:mood_text].nil?
+    unless params[:mood][:mood_text].nil?
       mood = Mood.where(mood_text: params[:mood][:mood_text]).first_or_initialize
       book_mood_relation = BookMoodRelation.where(mood_id: mood.id, book_id: params[:id]).first_or_initialize
       if book_mood_relation.id.nil?

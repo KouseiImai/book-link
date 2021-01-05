@@ -89,3 +89,25 @@
   color: #ffffff;
   border: double 4px #ffffff;
 }
+
+.books_search, .login, .sign_up, .logout, .user_nickname, .book_new {
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+}
+.books_search::after, .login::after, .sign_up::after, .logout::after, .user_nickname::after, .book_new::after {
+  position: absolute;
+  content: '';
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #2196F3;
+  transition: all 0.3s ease 0s;
+}
+.books_search:hover, .login:hover, .sign_up:hover, .logout:hover, .user_nickname:hover, .book_new:hover {
+  cursor: pointer;
+}
+.books_search:hover::after, .login:hover::after, .sign_up:hover::after, .logout:hover::after, .user_nickname:hover::after, .book_new:hover::after {
+  width: 100%;
+}

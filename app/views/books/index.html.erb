@@ -15,6 +15,11 @@
     <p class="app_explanation">今求めている本と出会うの実現を目指しているサービスです</p>
     <p class="app_explanation">そして多くの本・読者とつながることを思うサービスです</p>
   </div>
+  <div class="slider_index">
+    <%= image_tag 'book_icon1.png', class: "book_icon1_image"%>
+    <p class="registered_books">登録済み書籍一覧</p>
+    <%= image_tag 'book_icon1.png', class: "book_icon1_image"%>
+  </div>
   <div class='first_contents'>
     <div id='bookslider'>
       <ul class="bxslider">
@@ -46,34 +51,102 @@
     </div>
   </div>
 
+  <%= image_tag 'book_icon2.png', class: "book_icon2_image"%>
+  <p class="feature_title">BOOK LINKの特徴</p>
+  <div class="book_link_feature">
+    <p class="feature_contents">○ 気分で本を探すという機能があります</p>
+    <p class="feature_contents">○ 検索機能が豊富です</p>
+    <p class="feature_contents">○ 書籍情報を簡単に登録出来ます</p>
+  </div>
+
   <div class="second_contents">
     <div class="can_do_title">
-      <p class="can_do_title_text">BOOK LINKで出来ること</p>
+      <%= image_tag 'book_icon3.png', class: "book_icon3_image"%>
+      <p class="can_do_title_text">〜 BOOK LINKで出来ること 〜</p>
     </div>
     <div class="can_do">
-      <div class="can_do_contents">
-        <p class="contents_index">本情報の登録</p>
-        <ul class="details_lists">
-          <li class="list_text">どんな時に読んだか・どんな気分になったっかを登録出来ます。</li>
-          <li class="list_text">ISBN入力により本情報を自動で入力出来ます。</li>
-          <li class="list_text">手入力にての本情報の入力や編集も可能です。</li>
-        </ul>
+      <div class="can_do_contents1">
+        <div class="index_contents1">
+          <p class="index_text1">1. 書籍情報の登録</p>
+        </div>
+        <div class="explanation_contents1">
+          <%= image_tag 'registration.png', class: "registration_image" %>
+          <ul class="details_lists">
+            <li class="list_text">・ISBNを入力し検索をかけると自動で書籍情報を入力出来ます!</li>
+            <li class="sub_text">書籍情報の登録が簡単に行えます</li>
+            <li><%= image_tag 'isbn.png', class: "list_image"%></li>
+            <li class="list_text">・どんな時に読んだか・どんな気分になったっかを登録出来ます!</li>
+            <li class="sub_text">自分なりの簡易的な感想を登録出来ます</li>
+            <li><%= image_tag 'mood.png', class: "list_image"%></li>
+            <li class="list_text">・手入力にての本情報の入力や編集も可能です!</li>
+          </ul>
+        </div>
       </div>
-      <div class="can_do_contents">
-        <p class="contents_index">本を探す</p>
-        <ul class="details_lists">
-          <li class="list_text">今の気分にあった本を探せます。</li>
-          <li class="list_text">キーワード入力で本を探せます。</li>
-          <li class="list_text">ジャンルより本を探せます。</li>
-        </ul>
+
+      <div class="can_do_contents2">
+        <div class="index_contents2">
+          <p class="index_text2">2. 書籍情報の検索</p>
+        </div>
+        <div class="explanation_contents2">
+          <ul class="details_lists2">
+            <li class="list_text">・今の気分に合う本と出会えます!</li>
+            <li class="sub_text">書籍情報に紐づいている気分で探せます</li>
+            <li><%= image_tag 'mood_s.png', class: "mood_s_image"%></li>
+            <li class="list_text">・キーワードで探している本に出会えます!</li>
+            <li class="sub_text">書籍情報に紐づいてるキーワードで探せます</li>
+            <li><%= image_tag 'keyword.png', class: "keyword_image"%></li>
+            <li class="list_text">・ジャンルで探している本に出会えます!</li>
+            <li class="sub_text">細かいジャンル検索が可能です</li>
+            <li>
+              <%= image_tag 'genre1.png', class: "genre1_image"%>
+              <%= image_tag 'genre2.png', class: "genre2_image"%>
+            </li>
+            <li><%= image_tag 'genre3.png', class: "genre3_image"%></li>
+          </ul>
+        </div>
       </div>
-      <div class="can_do_contents">
-        <p class="contents_index">他の読者ともつながれます</p>
-        <ul class="details_lists">
-          <li class="list_text">その本を他の人がどんな時に読んだか・どんな気分になかったかを見ることが出来ます。</li>
-          <li class="list_text">他の人の感想を見ることが出来ます。</li>
-        </ul>
+
+      <div class="can_do_contents3">
+        <div class="index_contents3">
+          <p class="index_text3">3. 書籍の詳細情報</p>
+        </div>
+        <div class="explanation_contents3">
+          <ul class="details_lists">
+            <li class="list_text">・詳細画面で本の情報詳しく知れます!</li>
+            <li class="sub_text">タイトル・著者・発売日・ISBN・ジャンル・内容について知れます</li>
+            <li><%= image_tag 'details.png', class: "details_image"%></li>
+            <li class="list_text">・本をどんな時に読んだか・読み終えての気分を共有出来ます!</li>
+            <li class="sub_text">会員登録をしなくとも投稿可能です</li>
+            <li><%= image_tag 'mood_comment.png', class: "mood_comment_image"%></li>
+            <li class="list_text">・コメント蘭での会員同士の交流が可能です!</li>
+            <li class="sub_text">本の感想や意見交換が出来ます!</li>
+            <li><%= image_tag 'comment.png', class: "comment_image"%></li>
+          </ul>
+        </div>
       </div>
+
+      <div class="can_do_contents4">
+        <div class="index_contents4">
+          <p class="index_text4">4. その他の機能</p>
+        </div>
+        <div class="explanation_contents4">
+          <ul class="details_lists">
+            <li class="list_text">・マイページ機能!</li>
+            <li class="sub_text">登録した書籍の一覧を確認出来ます</li>
+            <li><%= image_tag 'my_page.png', class: "my_page_image"%></li>
+            <li class="list_text">・本情報の編集も可能です!</li>
+            <li class="sub_text">ジャンル情報や内容項目に関しても編集出来ます</li>
+            <li>
+              <%= image_tag 'edit1.png', class: "edit1_image"%>
+              <%= image_tag 'edit2.png', class: "edit2_image"%>
+            </li>
+            <li class="list_text">・登録されてる本が流れます!</li>
+            <li class="sub_text">登録されてる本はTopページにて一定時間で流れます</li>
+            <li><%= image_tag 'slider.png', class: "slider_image"%></li>
+          </ul>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
