@@ -18,8 +18,8 @@
   content: "";
   display: block;
   height: 4px;
-  background: -webkit-linear-gradient(to right, rgb(0,191,255,1), transparent);
-  background: linear-gradient(to right, rgb(0,191,255,1), transparent);
+  background: -webkit-linear-gradient(to right, #00bfff, transparent);
+  background: linear-gradient(to right, #00bfff, transparent);
 }
 
 .edit_isbn {
