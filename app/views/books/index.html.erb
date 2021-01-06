@@ -20,10 +20,10 @@
     <p class="registered_books">登録済み書籍一覧</p>
     <%= image_tag 'book_icon1.png', class: "book_icon1_image" %>
   </div>
-  <div class='first_contents'>
-    <div id='bookslider'>
-      <ul class="bxslider">
-        <% if @books != blank? %>
+  <% unless @books.blank? %>
+    <div class='first_contents'>
+      <div id='bookslider'>
+        <ul class="bxslider">
           <% @books.each do |book| %>
             <%= link_to book_path(book.id), method: :get do %> 
               <li class='book_list'>
@@ -46,10 +46,16 @@
               </li>
             <% end %>
           <% end %>
-        <% end %>
-      </ul>
+        </ul>
+      </div>
     </div>
-  </div>
+  <% else %>
+    <% if user_signed_in? %>
+      <%= link_to '登録されている書籍はありません、書籍の登録を行って下さい', new_book_path, class: "no_data_text" %>
+    <% else %>
+      <p class="no_data_text">登録されている書籍はありません、ログイン・会員登録後に書籍の登録を行って下さい</p>
+    <% end %>
+  <% end %>
 
   <%= image_tag 'book_icon2.png', class: "book_icon2_image"%>
   <p class="feature_title">BOOK LINKの特徴</p>
