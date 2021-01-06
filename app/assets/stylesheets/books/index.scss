@@ -125,15 +125,22 @@ a {
 
 .bx-controls-direction {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   text-shadow: none;
-  margin: 10px 50px;
 }
 
 .bx-prev,.bx-next {
   color: black;
   padding: 5px 20px;
   border: solid 2px  #67c5ff;
+}
+
+.bx-prev {
+  margin: 10px 20px 80px 50px;
+}
+
+.bx-next {
+  margin: 10px 50px 80px 0;
 }
 
 .bx-prev:hover, .bx-next:hover {
@@ -150,6 +157,15 @@ a {
 
 .first_contents {
   margin: 30px 0;
+}
+
+.no_data_text {
+  margin: 50px 0 100px 0;
+  padding: 20px;
+  font-size: 20px;
+  text-align: center;
+  color: red;
+  border: solid 2px #a9a9a9;
 }
 
 .book_icon2_image {
