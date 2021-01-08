@@ -2,7 +2,7 @@
 
 # アプリケーション名
 
-## Book-Link
+### Book-Link
 # アプリケーション概要
 
 書籍の登録・検索、登録済み書籍に対してのコメントが行えるWebアプリケーションです。<br>
@@ -19,12 +19,12 @@
 Heroku : https://book-link-28159.herokuapp.com/<br>
 AWS : http://54.178.85.203/
 
-<テストアカウント>
-・Heroku、AWSのどちらにもゲストログインの機能があります。
-※ゲストログイン以外でのログイン時にご利用ください。(Heroku・AWSどちらでも共通で使用出来ます)
-(アカウント情報)
-Email : yamada@com
-Password : y123456
+<テストアカウント><br>
+・Heroku、AWSのどちらにもゲストログインの機能があります。<br>
+※ゲストログイン以外でのログイン時にご利用ください。(Heroku・AWSどちらでも共通で使用出来ます)<br>
+(アカウント情報)<br>
+Email : yamada@com<br>
+Password : y123456<br>
 
 # 利用方法・
 
