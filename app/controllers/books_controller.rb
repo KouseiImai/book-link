@@ -68,10 +68,6 @@ class BooksController < ApplicationController
                                  :cover, :description).merge(user_id: current_user.id)
   end
 
-  def mood_params
-    params.require(:mood).permit(:mood_text)
-  end
-
   def set_data
     @book = Book.find(params[:id])
     @mood_datas = @book.moods
