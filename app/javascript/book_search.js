@@ -22,7 +22,7 @@ if ( location.pathname == "/books/new" || location.pathname == "/books"){
             XHR.responseType = "json";
             XHR.send();
             XHR.onload = () => {
-              if ( XHR.status === 200 ){
+              if ( XHR.status == 200 ){
                 $("#thumbnail").html('<img src=\"' + data[0].summary.cover + '\" style=\"margin: 5px 0 20px 0\" />');
                 $("#book-image-field").css({'visibility':'hidden','display':'none'});
                 $("#thumbnail").css({'color':'black'});
